@@ -1,5 +1,5 @@
 module.exports = {
-  reactStrictMode: true,
-  transpilePackages: ["@repo/ui"],
-  output: "standalone",
+	reactStrictMode: true,
+	transpilePackages: ["@repo/ui"],
+	output: "standalone",
 };
