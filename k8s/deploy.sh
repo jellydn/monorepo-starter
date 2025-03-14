@@ -11,6 +11,10 @@ DOMAIN=${DOMAIN:-"demo-app.$IP_ADDRESS.nip.io"}
 API_DOMAIN=${API_DOMAIN:-"api-demo-app.$IP_ADDRESS.nip.io"}
 API_URL=${API_URL:-"http://$API_DOMAIN"}
 TIMESTAMP=$(date +%s)
+USE_GHCR=${USE_GHCR:-"false"}
+GHCR_USERNAME=${GHCR_USERNAME:-"jellydn"}
+GHCR_REPO=${GHCR_REPO:-"monorepo-starter"}
+GHCR_TAG=${GHCR_TAG:-"latest"}
 
 # Display configuration
 echo "Deployment Configuration:"
@@ -23,6 +27,12 @@ echo "IP Address for nip.io: $IP_ADDRESS"
 echo "Web Domain: $DOMAIN"
 echo "API Domain: $API_DOMAIN"
 echo "API URL: $API_URL"
+echo "Using GHCR: $USE_GHCR"
+if [ "$USE_GHCR" = "true" ]; then
+  echo "GHCR Username: $GHCR_USERNAME"
+  echo "GHCR Repository: $GHCR_REPO"
+  echo "GHCR Tag: $GHCR_TAG"
+fi
 echo "Timestamp: $TIMESTAMP"
 echo "------------------------"
 
@@ -39,18 +49,92 @@ if ! kubectl cluster-info &> /dev/null; then
   exit 1
 fi
 
-# Build Docker images
-echo "Building Docker images..."
-docker build -t $REGISTRY_URL/web:latest \
-  -f apps/web/Dockerfile . || {
-  echo "Error: Failed to build web image."
-  exit 1
-}
+# Build or pull Docker images
+if [ "$USE_GHCR" = "true" ]; then
+  if [ -z "$GHCR_USERNAME" ]; then
+    echo "Error: GHCR_USERNAME is required when USE_GHCR is true."
+    exit 1
+  fi
 
-docker build -t $REGISTRY_URL/api:latest -f apps/api/Dockerfile . || {
-  echo "Error: Failed to build API image."
-  exit 1
-}
+  echo "Using pre-built images from GitHub Container Registry..."
+  WEB_IMAGE="ghcr.io/$GHCR_USERNAME/$GHCR_REPO-web:$GHCR_TAG"
+  API_IMAGE="ghcr.io/$GHCR_USERNAME/$GHCR_REPO-api:$GHCR_TAG"
+
+  # Pull images from GHCR
+  echo "Pulling web image: $WEB_IMAGE"
+  if ! docker pull $WEB_IMAGE; then
+    echo "Error: Failed to pull web image from GHCR."
+    echo "This could be due to:"
+    echo "1. The image doesn't exist with the specified tag: $GHCR_TAG"
+    echo "2. The image exists but doesn't support your architecture ($(uname -m))"
+    echo "3. You don't have permission to access the image"
+    echo ""
+    echo "Suggestions:"
+    echo "- Check if the image exists: https://github.com/$GHCR_USERNAME/$GHCR_REPO/pkgs/container/$GHCR_REPO-web"
+    echo "- Try a different tag (e.g., 'latest', 'main', or a specific version)"
+    echo "- Build the image locally instead by running without USE_GHCR=true"
+    echo "- If you're using Apple Silicon (M1/M2/M3), make sure the image supports arm64 architecture"
+    echo ""
+    read -p "Would you like to build the images locally instead? (y/n) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      echo "Switching to local build mode..."
+      USE_GHCR="false"
+      # Continue to the local build section
+    else
+      exit 1
+    fi
+  fi
+
+  if [ "$USE_GHCR" = "true" ]; then
+    echo "Pulling API image: $API_IMAGE"
+    if ! docker pull $API_IMAGE; then
+      echo "Error: Failed to pull API image from GHCR."
+      echo "This could be due to:"
+      echo "1. The image doesn't exist with the specified tag: $GHCR_TAG"
+      echo "2. The image exists but doesn't support your architecture ($(uname -m))"
+      echo "3. You don't have permission to access the image"
+      echo ""
+      echo "Suggestions:"
+      echo "- Check if the image exists: https://github.com/$GHCR_USERNAME/$GHCR_REPO/pkgs/container/$GHCR_REPO-api"
+      echo "- Try a different tag (e.g., 'latest', 'main', or a specific version)"
+      echo "- Build the image locally instead by running without USE_GHCR=true"
+      echo "- If you're using Apple Silicon (M1/M2/M3), make sure the image supports arm64 architecture"
+      echo ""
+      read -p "Would you like to build the images locally instead? (y/n) " -n 1 -r
+      echo
+      if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo "Switching to local build mode..."
+        USE_GHCR="false"
+        # Continue to the local build section
+      else
+        exit 1
+      fi
+    fi
+  fi
+
+  if [ "$USE_GHCR" = "true" ]; then
+    # Tag images for local registry if needed
+    echo "Tagging images for local registry..."
+    docker tag $WEB_IMAGE $REGISTRY_URL/web:latest
+    docker tag $API_IMAGE $REGISTRY_URL/api:latest
+  fi
+fi
+
+if [ "$USE_GHCR" = "false" ]; then
+  # Build Docker images locally
+  echo "Building Docker images locally..."
+  docker build -t $REGISTRY_URL/web:latest \
+    -f apps/web/Dockerfile . || {
+    echo "Error: Failed to build web image."
+    exit 1
+  }
+
+  docker build -t $REGISTRY_URL/api:latest -f apps/api/Dockerfile . || {
+    echo "Error: Failed to build API image."
+    exit 1
+  }
+fi
 
 # Push Docker images
 echo "Pushing Docker images to $REGISTRY_URL..."

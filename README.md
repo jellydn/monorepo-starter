@@ -49,6 +49,84 @@ To shutdown all runnin containers:
 docker kill $(docker ps -q) && docker rm $(docker ps -a -q)
 ```
 
+### GitHub Container Registry (GHCR)
+
+This repo is configured to publish Docker images to GitHub Container Registry (GHCR). The images are automatically built and published when you push to the `main` branch or create a new tag.
+
+#### CI/CD Workflow
+
+The GitHub Actions workflow builds and publishes Docker images in parallel for faster execution:
+
+- The web and API images are built simultaneously in separate jobs
+- Each build supports multi-architecture images
+- A summary job runs after all builds are complete to report the status
+
+#### Multi-Architecture Support
+
+The Docker images are built for multiple architectures:
+
+- `linux/amd64` - For Intel/AMD processors (standard x86_64 architecture)
+- `linux/arm64` - For ARM processors (Apple Silicon M1/M2/M3, AWS Graviton, etc.)
+
+This ensures that the images can run on various platforms without compatibility issues.
+
+#### Using GHCR Images Locally
+
+Instead of building Docker images locally, you can use the pre-built images from GHCR:
+
+1. Create a `.env` file based on the `.env.example` template:
+
+```sh
+cp .env.example .env
+```
+
+2. Edit the `.env` file with your GitHub username and repository name:
+
+```
+GHCR_USERNAME=your-github-username
+GHCR_REPO=monorepo-starter
+GHCR_REGISTRY=ghcr.io
+GHCR_TAG=latest
+```
+
+3. Log in to GitHub Container Registry:
+
+```sh
+echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
+```
+
+4. Start the containers using the pre-built images:
+
+```sh
+docker-compose up -d
+```
+
+#### Helper Script
+
+For convenience, a helper script is provided to simplify working with GHCR images:
+
+```sh
+./use-ghcr-images.sh
+```
+
+This interactive script provides the following options:
+
+- Pull and use GHCR images with docker-compose
+- Pull and use GHCR images with Kubernetes
+- Check available tags for images
+- Login to GitHub Container Registry
+
+The script will automatically create a `.env` file with default values if one doesn't exist.
+
+#### Available Tags
+
+The following tags are available for the Docker images:
+
+- `latest`: The latest build from the `main` branch
+- `main`: The latest build from the `main` branch
+- `vX.Y.Z`: Specific version tags (e.g., `v1.0.0`)
+- `sha-XXXXXXX`: Specific commit SHA
+
 ### Kubernetes Deployment
 
 This repo includes Kubernetes manifests and scripts to deploy the application to any Kubernetes cluster, whether local, cloud-based, or on-premises.

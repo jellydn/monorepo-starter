@@ -3,6 +3,8 @@ version: "3"
 services:
   web:
     container_name: web
+    # Use the image from GHCR if available, otherwise build locally
+    image: ${GHCR_REGISTRY:-ghcr.io}/${GHCR_USERNAME:-username}/${GHCR_REPO:-monorepo-starter}-web:${GHCR_TAG:-latest}
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
@@ -13,6 +15,8 @@ services:
       - app_network
   api:
     container_name: api
+    # Use the image from GHCR if available, otherwise build locally
+    image: ${GHCR_REGISTRY:-ghcr.io}/${GHCR_USERNAME:-username}/${GHCR_REPO:-monorepo-starter}-api:${GHCR_TAG:-latest}
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile

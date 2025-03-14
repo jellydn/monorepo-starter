@@ -49,21 +49,71 @@ k8s/
 
 ## Local Development
 
-To set up a local Kubernetes environment using kind (Kubernetes in Docker):
+### Setting up a Local Kubernetes Cluster
 
-```bash
-./k8s/setup-local.sh
+To set up a local Kubernetes environment using Kind:
+
+```sh
+# Run the setup script
+./setup-local.sh
 ```
 
 This script will:
 
-1. Create a local Docker registry
-2. Create a kind cluster
-3. Install NGINX Ingress Controller
-4. Configure the cluster to work with the local registry
-5. Add `app.local` to your `/etc/hosts` file
+1. Install Kind if not already installed
+2. Create a local Kubernetes cluster
+3. Set up a local registry
+4. Configure the cluster to use the local registry
 
-## Deployment
+### Deploying to Local Kubernetes
+
+To deploy the application to your local Kubernetes cluster:
+
+```sh
+# Deploy using locally built images
+./deploy.sh
+
+# Or specify a custom registry URL
+REGISTRY_URL=localhost:5000 ./deploy.sh
+```
+
+## Using GitHub Container Registry (GHCR) Images
+
+You can deploy the application using pre-built images from GitHub Container Registry (GHCR) instead of building them locally:
+
+```sh
+# Deploy using GHCR images
+USE_GHCR=true GHCR_USERNAME=your-github-username GHCR_REPO=monorepo-starter GHCR_TAG=latest ./deploy.sh
+```
+
+### Multi-Architecture Support
+
+The Docker images are built for multiple architectures:
+
+- `linux/amd64` - For Intel/AMD processors (standard x86_64 architecture)
+- `linux/arm64` - For ARM processors (Apple Silicon M1/M2/M3, AWS Graviton, etc.)
+
+This ensures that the images can run on various platforms without compatibility issues.
+
+### Required Environment Variables for GHCR
+
+| Variable        | Description                | Default            |
+| --------------- | -------------------------- | ------------------ |
+| `USE_GHCR`      | Whether to use GHCR images | `false`            |
+| `GHCR_USERNAME` | Your GitHub username       | `""`               |
+| `GHCR_REPO`     | The repository name        | `monorepo-starter` |
+| `GHCR_TAG`      | The image tag to use       | `latest`           |
+
+### Available Tags
+
+The following tags are available for the Docker images:
+
+- `latest`: The latest build from the `main` branch
+- `main`: The latest build from the `main` branch
+- `vX.Y.Z`: Specific version tags (e.g., `v1.0.0`)
+- `sha-XXXXXXX`: Specific commit SHA
+
+## Production Deployment
 
 ### Local Deployment
 
