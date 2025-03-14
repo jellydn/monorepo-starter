@@ -36,6 +36,10 @@ k8s/
 ├── configmap.yaml          # ConfigMap for environment variables
 ├── deploy.sh               # Deployment script
 ├── ingress.yaml            # Ingress configuration for external access
+├── install-dashboard.sh    # Script to install Kubernetes Dashboard
+├── install-gui-tools.sh    # Main script to install GUI tools
+├── install-k9s.sh          # Script to install K9s
+├── install-lens.sh         # Script to install Lens Desktop
 ├── kustomization.yaml      # Kustomize configuration
 ├── namespace.yaml          # Namespace definition
 ├── setup-local.sh          # Script to set up local Kubernetes environment
@@ -88,6 +92,62 @@ The deployment script will:
 1. Build Docker images for the web and API services
 2. Push the images to the specified registry
 3. Apply the Kubernetes manifests using kustomize
+
+## Kubernetes GUI Tools
+
+For easier management of your Kubernetes cluster, you can install various GUI tools:
+
+```bash
+./k8s/install-gui-tools.sh
+```
+
+This script provides a menu to install and configure the following tools:
+
+### 1. Kubernetes Dashboard
+
+A web-based UI for Kubernetes that allows you to:
+
+- Deploy containerized applications
+- Troubleshoot your applications
+- Manage cluster resources
+- View logs and metrics
+
+To install only the Kubernetes Dashboard:
+
+```bash
+./k8s/install-dashboard.sh
+```
+
+### 2. K9s
+
+A terminal-based UI for Kubernetes that provides:
+
+- Real-time monitoring of your cluster
+- Resource management
+- Log viewing
+- Command execution in pods
+
+To install only K9s:
+
+```bash
+./k8s/install-k9s.sh
+```
+
+### 3. Lens Desktop
+
+A standalone application that provides:
+
+- Multi-cluster management
+- Real-time statistics
+- Built-in terminal
+- Resource editing and management
+- Integrated debugging tools
+
+To install only Lens Desktop:
+
+```bash
+./k8s/install-lens.sh
+```
 
 ## Cloudflare Integration
 
