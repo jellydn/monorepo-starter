@@ -1,25 +1,29 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+# This file defines a Kustomization configuration
+# Kustomize is a tool for customizing Kubernetes configurations without modifying the original YAML files
 
-namespace: monorepo-app
+apiVersion: kustomize.config.k8s.io/v1beta1 # The API version for the Kustomization resource
+kind: Kustomization # The type of resource being defined
 
-resources:
-  - namespace.yaml
-  - web-deployment.yaml
-  - web-service.yaml
-  - api-deployment.yaml
-  - api-service.yaml
-  - ingress.yaml
-  - configmap.yaml
+namespace: monorepo-app # The namespace where all resources will be deployed
 
-labels:
-  - pairs:
-      app.kubernetes.io/part-of: monorepo-app
-    includeSelectors: true
-    includeTemplates: true
+resources: # List of Kubernetes resource files to include in this kustomization
+  - namespace.yaml # Creates the namespace
+  - web-deployment.yaml # Deployment for the web application
+  - web-service.yaml # Service for the web application
+  - api-deployment.yaml # Deployment for the API application
+  - api-service.yaml # Service for the API application
+  - ingress.yaml # Ingress for external access
+  - configmap.yaml # ConfigMap for configuration data
+  - autoscale.yaml # Horizontal Pod Autoscalers for web and API
 
-configMapGenerator:
-  - name: app-config
-    behavior: merge
-    literals:
-      - ENVIRONMENT=production
+labels: # Labels to add to all resources
+  - pairs: # Key-value pairs for labels
+      app.kubernetes.io/part-of: monorepo-app # Standard label to group resources by application
+    includeSelectors: true # Add these labels to selectors (like in Deployments)
+    includeTemplates: true # Add these labels to templates (like Pod templates)
+
+configMapGenerator: # Generates or modifies ConfigMaps
+  - name: app-config # The name of the ConfigMap to generate/modify
+    behavior: merge # Merge with existing ConfigMap rather than replacing it
+    literals: # Key-value pairs to add to the ConfigMap
+      - ENVIRONMENT=production # Sets the ENVIRONMENT variable to "production"

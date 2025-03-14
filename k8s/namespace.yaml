@@ -1,4 +1,7 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: monorepo-app
+# This file defines a Kubernetes Namespace
+# A Namespace provides a way to divide cluster resources between multiple users or projects
+
+apiVersion: v1 # The API version for the Namespace resource type
+kind: Namespace # The type of Kubernetes resource being defined
+metadata: # Metadata about the Namespace
+  name: monorepo-app # The name of the Namespace, used to isolate resources
