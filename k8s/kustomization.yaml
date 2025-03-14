@@ -12,8 +12,11 @@ resources:
   - ingress.yaml
   - configmap.yaml
 
-commonLabels:
-  app.kubernetes.io/part-of: monorepo-app
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: monorepo-app
+    includeSelectors: true
+    includeTemplates: true
 
 configMapGenerator:
   - name: app-config
