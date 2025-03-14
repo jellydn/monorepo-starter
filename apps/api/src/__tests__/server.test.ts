@@ -1,5 +1,5 @@
 import supertest from "supertest";
-import { describe, it, expect } from "@jest/globals";
+import { describe, it, expect } from "vitest";
 import { createServer } from "../server";
 
 describe("server", () => {
@@ -7,7 +7,7 @@ describe("server", () => {
     await supertest(createServer())
       .get("/status")
       .expect(200)
-      .then((res) => {
+      .then((res: supertest.Response) => {
         expect(res.body.ok).toBe(true);
       });
   });
@@ -16,7 +16,7 @@ describe("server", () => {
     await supertest(createServer())
       .get("/message/jared")
       .expect(200)
-      .then((res) => {
+      .then((res: supertest.Response) => {
         expect(res.body.message).toBe("hello jared");
       });
   });

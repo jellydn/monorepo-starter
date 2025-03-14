@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, ChangeEvent, FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { Button } from "@repo/ui/button";
 
 const API_HOST = process.env.NEXT_PUBLIC_API_HOST || "http://localhost:3001";
@@ -10,6 +10,7 @@ export default function Web() {
   const [response, setResponse] = useState<{ message: string } | null>(null);
   const [error, setError] = useState<string | undefined>();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: This will reset the response and error when the name changes
   useEffect(() => {
     setResponse(null);
     setError(undefined);
@@ -46,7 +47,7 @@ export default function Web() {
           id="name"
           value={name}
           onChange={onChange}
-        ></input>
+        />
         <Button type="submit">Submit</Button>
       </form>
       {error && (
