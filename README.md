@@ -42,7 +42,7 @@ docker-compose -f docker-compose.yml up -d
 
 Open http://localhost:3000.
 
-To shutdown all running containers:
+To shutdown all runnin containers:
 
 ```sh
 # Stop all running containers
@@ -65,3 +65,4 @@ You can test this behavior using a command like:
 This Turborepo has some additional tools already setup for you:
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [Biome](https://biomejs.dev) for format, lint, and more in a fraction of a second.
