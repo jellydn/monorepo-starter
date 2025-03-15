@@ -66,7 +66,7 @@ jobs:
       # Build and push Web Docker image
       - name: Build and push Web Docker image
         id: build-and-push-web
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: ./apps/web/Dockerfile
@@ -126,7 +126,7 @@ jobs:
       # Build and push API Docker image
       - name: Build and push API Docker image
         id: build-and-push-api
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: ./apps/api/Dockerfile
