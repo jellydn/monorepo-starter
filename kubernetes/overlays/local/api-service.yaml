@@ -1,0 +1,18 @@
+# This file defines a Kubernetes Service for the API application
+# A Service provides a stable network endpoint to access a set of Pods
+
+apiVersion: v1 # The API version for the Service resource type
+kind: Service # The type of Kubernetes resource being defined
+metadata: # Metadata about the Service
+  name: api # The name of the Service, used to reference it
+  labels: # Key-value pairs used to organize and select Kubernetes objects
+    app: api # Label that identifies this Service as part of the API application
+spec: # The specification for the Service
+  type: ClusterIP # The type of Service - ClusterIP creates an internal IP accessible only within the cluster
+  ports: # List of ports that this Service will expose
+    - port: 3001 # The port on which the Service will be accessible
+      targetPort: 3001 # The port on the Pod that the Service will forward traffic to
+      protocol: TCP # The network protocol used (TCP in this case)
+      name: http # A name for this port (can be referenced by other resources)
+  selector: # Defines which Pods the Service will route traffic to
+    app: api # Selects Pods with the label "app: api"

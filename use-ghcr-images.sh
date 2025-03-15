@@ -86,9 +86,7 @@ case $option in
     fi
 
     # Deploy to Kubernetes
-    cd k8s
-    USE_GHCR=true GHCR_USERNAME=$GHCR_USERNAME GHCR_REPO=$GHCR_REPO GHCR_TAG=$GHCR_TAG ./deploy.sh
-    cd ..
+    USE_GHCR=true GHCR_USERNAME=$GHCR_USERNAME GHCR_REPO=$GHCR_REPO GHCR_TAG=$GHCR_TAG ./kubernetes/scripts/deploy-local.sh
     ;;
 
   3)

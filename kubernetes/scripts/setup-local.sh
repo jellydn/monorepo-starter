@@ -92,7 +92,7 @@ kubectl config use-context "kind-${CLUSTER_NAME}"
 
 echo "Local Kubernetes environment is ready!"
 echo "Registry: localhost:${REGISTRY_PORT}"
-echo "To deploy your application, run: REGISTRY_URL=localhost:${REGISTRY_PORT} ./k8s/deploy.sh"
+echo "To deploy your application, run: REGISTRY_URL=localhost:${REGISTRY_PORT} ./kubernetes/scripts/deploy-local.sh"
 echo "After deployment, you can access:"
 echo "- Web: http://demo-app.${IP_ADDRESS}.nip.io"
 echo "- API: http://api-demo-app.${IP_ADDRESS}.nip.io"

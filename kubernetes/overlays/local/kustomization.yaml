@@ -1,0 +1,30 @@
+# Local Development Overlay for Kubernetes Configuration
+# This file defines how to customize the base Kubernetes configuration for local development
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Reference the base directory containing the common Kubernetes manifests
+resources:
+  - ../../base
+
+# Namespace for all resources
+namespace: monorepo-app
+
+# Add local-specific labels to all resources
+commonLabels:
+  environment: local
+
+# Add local-specific annotations to all resources
+commonAnnotations:
+  environment: "local"
+  description: "Local development environment using kind"
+
+# Configure image tags for local development
+images:
+  - name: ${REGISTRY_URL}/web
+    newName: localhost:5000/web
+    newTag: latest
+  - name: ${REGISTRY_URL}/api
+    newName: localhost:5000/api
+    newTag: latest

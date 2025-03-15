@@ -154,16 +154,40 @@ This repo includes Kubernetes manifests and scripts to deploy the application to
                                      └─────────────────────────────────────────────┘
 ```
 
+#### Kubernetes Templates
+
+This repository offers two Kubernetes deployment templates:
+
+##### 1. Basic Template (For Beginners)
+
+If you're new to Kubernetes, you can use the basic template available at [basic-k8s branch](https://github.com/jellydn/monorepo-starter/tree/basic-k8s). This template provides a simpler structure with all configuration in a single `k8s` directory.
+
+```sh
+# Clone the repository with the basic-k8s branch
+git clone -b basic-k8s https://github.com/jellydn/monorepo-starter.git
+cd monorepo-starter
+
+# Set up a local Kubernetes cluster with kind
+./k8s/setup-local.sh
+
+# Deploy the application to the local cluster
+./k8s/deploy.sh
+```
+
+##### 2. Advanced Template (Main Branch)
+
+The main branch uses a more sophisticated structure with Kustomize overlays for different environments. This approach is better suited for production deployments and multi-environment setups.
+
 #### Local Development with Kubernetes
 
 To set up a local Kubernetes environment:
 
 ```sh
 # Set up a local Kubernetes cluster with kind
-./k8s/setup-local.sh
+./kubernetes/scripts/setup-local.sh
 
 # Deploy the application to the local cluster
-REGISTRY_URL=localhost:5000 ./k8s/deploy.sh
+./kubernetes/scripts/deploy-local.sh
 ```
 
 #### Production Deployment with Cloudflare
@@ -172,10 +196,14 @@ For production deployment with Cloudflare as a proxy:
 
 ```sh
 # Deploy with Cloudflare integration
-REGISTRY_URL=your-registry.example.com CONTEXT=your-cluster-context USE_CLOUDFLARE=true DOMAIN=yourdomain.com ./k8s/deploy.sh
+REGISTRY_URL=your-registry.example.com \
+CONTEXT=your-production-context \
+DOMAIN=next-app-demo.itman.fyi \
+API_DOMAIN=express-api-demo.itman.fyi \
+./kubernetes/scripts/deploy-production.sh
 ```
 
-For more details, see the [Kubernetes README](./k8s/README.md).
+For more details, see the [Kubernetes README](./kubernetes/README.md).
 
 ### Remote Caching
 

@@ -1,0 +1,41 @@
+# Production Overlay for Kubernetes Configuration
+# This file defines how to customize the base Kubernetes configuration for production environments
+# Domain: itman.fyi
+# Web App: next-app-demo.itman.fyi
+# API: express-api-demo.itman.fyi
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Reference the base directory containing the common Kubernetes manifests
+resources:
+  - ../../base
+  - network-policy.yaml
+  - pod-disruption-budget.yaml
+  - resource-quota.yaml
+
+# Namespace for all resources
+namespace: monorepo-app
+
+# Increase the number of replicas for high availability in production
+replicas:
+  - name: web
+    count: 3
+  - name: api
+    count: 3
+
+# Apply patches to customize the base resources for production
+patchesStrategicMerge:
+  - ingress-patch.yaml
+  - web-deployment-patch.yaml
+  - api-deployment-patch.yaml
+  - configmap-patch.yaml
+
+# Add production-specific labels to all resources
+commonLabels:
+  environment: production
+
+# Add production-specific annotations to all resources
+commonAnnotations:
+  contact: "devops@itman.fyi"
+  environment: "production"

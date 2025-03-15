@@ -1,0 +1,33 @@
+# Production ConfigMap Patch
+# This file patches the base ConfigMap configuration for production use
+# with production-specific environment variables and settings
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  # Production environment
+  NODE_ENV: "production"
+
+  # Production URLs with HTTPS
+  API_URL: "https://express-api-demo.itman.fyi"
+  WEB_URL: "https://next-app-demo.itman.fyi"
+
+  # Logging configuration
+  LOG_LEVEL: "info"
+  ENABLE_REQUEST_LOGGING: "true"
+
+  # Performance settings
+  ENABLE_COMPRESSION: "true"
+  ENABLE_CACHE: "true"
+  CACHE_TTL: "3600"
+
+  # Security settings
+  CORS_ORIGIN: "https://next-app-demo.itman.fyi"
+  RATE_LIMIT_WINDOW_MS: "60000"
+  RATE_LIMIT_MAX: "100"
+
+  # Feature flags
+  ENABLE_ANALYTICS: "true"
+  ENABLE_MONITORING: "true"

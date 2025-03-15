@@ -1,0 +1,91 @@
+# Production API Deployment Patch
+# This file patches the base API deployment configuration for production use
+# with enhanced resource limits, security settings, and high availability features
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  # Replicas are set in kustomization.yaml
+  template:
+    metadata:
+      annotations:
+        # Add production-specific annotations
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "3001"
+        prometheus.io/path: "/metrics"
+    spec:
+      # Configure pod distribution for high availability
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - api
+                topologyKey: "kubernetes.io/hostname"
+
+      # Configure security context for enhanced security
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+
+      containers:
+        - name: api
+          # Update resource limits for production workloads
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "0.5"
+              memory: "512Mi"
+
+          # Update environment variables for production
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: WEB_URL
+              value: "https://next-app-demo.itman.fyi"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: RATE_LIMIT_MAX
+              value: "100"
+
+          # Configure security context at container level
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+
+          # Update probes for production
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3001
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3001
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 2
+
+          # Add startup probe for Kubernetes 1.18+
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 3001
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 30

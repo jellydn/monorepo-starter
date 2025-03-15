@@ -1,0 +1,29 @@
+# Production Pod Disruption Budgets
+# This file defines Pod Disruption Budgets (PDBs) for the production environment
+# to ensure high availability during voluntary disruptions like node maintenance
+
+# PDB for the web application
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: web-pdb
+  namespace: monorepo-app
+spec:
+  # Ensure at least 2 pods are available at all times
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: web
+---
+# PDB for the API application
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: api-pdb
+  namespace: monorepo-app
+spec:
+  # Ensure at least 2 pods are available at all times
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: api

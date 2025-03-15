@@ -1,0 +1,44 @@
+# This file defines Horizontal Pod Autoscalers (HPAs) for the web and API applications
+# HPAs automatically scale the number of pods based on observed CPU utilization or other metrics
+
+---
+apiVersion: autoscaling/v2 # The API version for the HorizontalPodAutoscaler resource type
+kind: HorizontalPodAutoscaler # The type of Kubernetes resource being defined
+metadata: # Metadata about the HPA
+  name: web-hpa # The name of the HPA, used to reference it
+  namespace: monorepo-app # The namespace this HPA belongs to
+spec: # The specification for the HPA
+  scaleTargetRef: # Reference to the resource being scaled
+    apiVersion: apps/v1 # API version of the target resource
+    kind: Deployment # Type of the target resource
+    name: web # Name of the target resource
+  minReplicas: 1 # Minimum number of replicas to scale down to
+  maxReplicas: 3 # Maximum number of replicas to scale up to
+  metrics: # Metrics to use for scaling decisions
+    - type: Resource # Type of metric (Resource means CPU or memory)
+      resource: # Resource metric specification
+        name: cpu # The resource to monitor (CPU in this case)
+        target: # Target value for the metric
+          type: Utilization # Type of target (Utilization is a percentage)
+          averageUtilization: 80 # Target CPU utilization percentage (80%)
+
+---
+apiVersion: autoscaling/v2 # The API version for the HorizontalPodAutoscaler resource type
+kind: HorizontalPodAutoscaler # The type of Kubernetes resource being defined
+metadata: # Metadata about the HPA
+  name: api-hpa # The name of the HPA, used to reference it
+  namespace: monorepo-app # The namespace this HPA belongs to
+spec: # The specification for the HPA
+  scaleTargetRef: # Reference to the resource being scaled
+    apiVersion: apps/v1 # API version of the target resource
+    kind: Deployment # Type of the target resource
+    name: api # Name of the target resource
+  minReplicas: 1 # Minimum number of replicas to scale down to
+  maxReplicas: 3 # Maximum number of replicas to scale up to
+  metrics: # Metrics to use for scaling decisions
+    - type: Resource # Type of metric (Resource means CPU or memory)
+      resource: # Resource metric specification
+        name: cpu # The resource to monitor (CPU in this case)
+        target: # Target value for the metric
+          type: Utilization # Type of target (Utilization is a percentage)
+          averageUtilization: 80 # Target CPU utilization percentage (80%)

@@ -1,0 +1,26 @@
+# Production Resource Quota
+# This file defines resource quotas for the production environment
+# to limit and manage resource usage within the namespace
+
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: monorepo-quota
+  namespace: monorepo-app
+spec:
+  hard:
+    # CPU and memory limits
+    requests.cpu: "8"
+    requests.memory: "16Gi"
+    limits.cpu: "16"
+    limits.memory: "32Gi"
+
+    # Storage limits
+    requests.storage: "100Gi"
+
+    # Object count limits
+    pods: "20"
+    services: "10"
+    configmaps: "20"
+    secrets: "20"
+    persistentvolumeclaims: "10"

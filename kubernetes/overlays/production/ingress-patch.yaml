@@ -1,0 +1,60 @@
+# Production Ingress Patch
+# This file patches the base ingress configuration for production use with real domains
+# and enables TLS/HTTPS with Cloudflare integration
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  annotations:
+    # Enable HTTPS redirection
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+    # Performance and security settings
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+
+    # Specify the ingress controller class
+    kubernetes.io/ingress.class: "nginx"
+
+    # External DNS integration for automatic DNS management
+    external-dns.alpha.kubernetes.io/hostname: "next-app-demo.itman.fyi,express-api-demo.itman.fyi"
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+
+    # Add cert-manager annotation for automatic TLS certificate management
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+    # Documentation
+    owner: "DevOps Team"
+    description: "Production ingress for monorepo application"
+spec:
+  # Configure TLS for secure HTTPS connections
+  tls:
+    - hosts:
+        - next-app-demo.itman.fyi
+        - express-api-demo.itman.fyi
+      secretName: itman-fyi-tls-secret
+
+  # Update the host rules with production domains
+  rules:
+    - host: next-app-demo.itman.fyi
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 3000
+    - host: express-api-demo.itman.fyi
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api
+                port:
+                  number: 3001

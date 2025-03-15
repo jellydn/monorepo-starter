@@ -1,0 +1,11 @@
+# This file defines a Kubernetes ConfigMap
+# A ConfigMap provides a way to inject configuration data into containers
+
+apiVersion: v1 # The API version for the ConfigMap resource type
+kind: ConfigMap # The type of Kubernetes resource being defined
+metadata: # Metadata about the ConfigMap
+  name: app-config # The name of the ConfigMap, used to reference it
+data: # The actual configuration data stored in key-value pairs
+  NODE_ENV: "production" # Sets the Node.js environment to production mode
+  API_URL: "http://api:3001" # URL to access the API service within the cluster
+  WEB_URL: "http://web:3000" # URL to access the web service within the cluster

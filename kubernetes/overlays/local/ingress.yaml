@@ -1,0 +1,47 @@
+# This file defines a Kubernetes Ingress resource for routing external HTTP/HTTPS traffic to services
+# An Ingress acts as an entry point for your cluster, providing HTTP routing rules
+
+apiVersion: networking.k8s.io/v1 # The API version for the Ingress resource type
+kind: Ingress # The type of Kubernetes resource being defined
+metadata: # Metadata about the Ingress
+  name: app-ingress # The name of the Ingress, used to reference it
+  annotations: # Additional configuration options for the Ingress controller
+    nginx.ingress.kubernetes.io/rewrite-target: / # Rewrites the path of the request to '/'
+    # Cloudflare-related annotations (only needed for production with Cloudflare)
+    # Uncomment these when using Cloudflare as a proxy
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"        # Forces redirect from HTTP to HTTPS
+    # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"  # Forces SSL redirect even if Ingress doesn't have TLS
+    # nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"    # Sets buffer size for the proxy
+    # nginx.ingress.kubernetes.io/proxy-body-size: "50m"      # Sets maximum allowed size of the client request body
+    # kubernetes.io/ingress.class: "nginx"                    # Specifies which Ingress controller to use
+    # External-dns annotation for Cloudflare integration
+    # external-dns.alpha.kubernetes.io/hostname: "yourdomain.com"  # Sets the hostname for external-dns
+    # Cloudflare proxy status
+    # external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"  # Enables Cloudflare proxying
+spec: # The specification for the Ingress
+  rules: # List of host rules used to configure the Ingress
+    - host: demo-app.127.0.0.1.nip.io # The hostname for this rule (using nip.io for local development)
+      http: # HTTP configuration
+        paths: # List of paths and their backends
+          - path: / # The URL path for this rule (root path in this case)
+            pathType: Prefix # Type of path matching (Prefix matches any URL starting with the path)
+            backend: # The backend service to route traffic to
+              service: # Service configuration
+                name: web # The name of the service to route to
+                port: # Port configuration
+                  number: 3000 # The port number on the service
+    - host: api-demo-app.127.0.0.1.nip.io # The hostname for the API (using nip.io for local development)
+      http: # HTTP configuration
+        paths: # List of paths and their backends
+          - path: / # The URL path for this rule (root path in this case)
+            pathType: Prefix # Type of path matching (Prefix matches any URL starting with the path)
+            backend: # The backend service to route traffic to
+              service: # Service configuration
+                name: api # The name of the service to route to
+                port: # Port configuration
+                  number: 3001 # The port number on the service
+  # Uncomment for TLS with Cloudflare
+  # tls:                          # TLS configuration for secure HTTPS connections
+  # - hosts:                      # List of hosts covered by this TLS configuration
+  #   - yourdomain.com            # The hostname that will use this TLS certificate
+  #   secretName: tls-secret      # Name of the Kubernetes Secret containing the TLS certificate
