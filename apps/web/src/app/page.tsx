@@ -219,7 +219,7 @@ export default function Web() {
 								onChange={onChange}
 								placeholder="Enter your name"
 								style={{
-									width: "100%",
+									width: "92%",
 									padding: "0.75rem 1rem",
 									borderRadius: "6px",
 									border: "1px solid #e2e8f0",
