@@ -45,14 +45,17 @@ jobs:
           pipx install pre-commit
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v45
+        uses: hanseltimeindustries/get-changed-files@v1
+        # id: changed-files
+        # uses: tj-actions/changed-files@v45
         # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
         # with:
         #   since_last_remote_commit: true
 
+      # - name: Get changed files
       - name: Run pre-commit
         run: |
-          pre-commit run --files ${{ steps.changed-files.outputs.all_changed_files }}
+          pre-commit run --files ${{ steps.changed-files.outputs.all }}
         continue-on-error: true # Continue even if pre-commit fails
 
       # Commit all changed files back to the repository
