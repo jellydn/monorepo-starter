@@ -1,0 +1,55 @@
+# PostgreSQL Deployment Configuration
+# This file defines a Kubernetes Deployment for the PostgreSQL database
+# A Deployment manages the creation and update of a PostgreSQL container
+
+apiVersion: apps/v1 # The API version for Deployment resources
+kind: Deployment # The type of Kubernetes resource
+metadata: # Metadata about the Deployment
+  name: postgres # The name of this Deployment
+  labels: # Labels to identify this resource
+    app: postgres # Label that identifies this as part of the PostgreSQL application
+spec: # The specification for the Deployment
+  replicas: 1 # Number of identical pods to maintain (only 1 for database to avoid data conflicts)
+  selector: # Defines how the Deployment finds which Pods to manage
+    matchLabels: # Pods with matching labels will be managed by this Deployment
+      app: postgres # Selects Pods with the label "app: postgres"
+  template: # The template for creating new Pods
+    metadata: # Metadata for the Pods created from this template
+      labels: # Labels applied to Pods created from this template
+        app: postgres # Each Pod will have the label "app: postgres"
+    spec: # The specification for the Pods
+      containers: # List of containers in the Pod
+        - name: postgres # Name of the container
+          image: postgres:16-alpine # Container image to use (PostgreSQL 16 Alpine version)
+          ports: # List of ports to expose from the container
+            - containerPort: 5432 # The standard PostgreSQL port
+          env: # Environment variables to set in the container
+            - name: POSTGRES_USER # Database username
+              valueFrom: # Get value from a ConfigMap
+                configMapKeyRef:
+                  name: postgres-config # Name of the ConfigMap
+                  key: POSTGRES_USER # Key in the ConfigMap
+            - name: POSTGRES_PASSWORD # Database password
+              valueFrom: # Get value from a ConfigMap
+                configMapKeyRef:
+                  name: postgres-config # Name of the ConfigMap
+                  key: POSTGRES_PASSWORD # Key in the ConfigMap
+            - name: POSTGRES_DB # Database name
+              valueFrom: # Get value from a ConfigMap
+                configMapKeyRef:
+                  name: postgres-config # Name of the ConfigMap
+                  key: POSTGRES_DB # Key in the ConfigMap
+          volumeMounts: # Volumes to mount into the container
+            - name: postgres-data # Name of the volume to mount
+              mountPath: /var/lib/postgresql/data # Path in the container to mount the volume
+          resources: # Resource limits and requests for the container
+            requests: # Resources guaranteed to the container
+              memory: "256Mi" # Request 256 megabytes of memory
+              cpu: "100m" # Request 0.1 CPU cores (100 milliCPU)
+            limits: # Maximum resources the container can use
+              memory: "512Mi" # Maximum of 512 megabytes of memory
+              cpu: "500m" # Maximum of 0.5 CPU cores (500 milliCPU)
+      volumes: # List of volumes that can be mounted by containers in this Pod
+        - name: postgres-data # Name of the volume (referenced in volumeMounts)
+          persistentVolumeClaim: # Use a PersistentVolumeClaim for persistent storage
+            claimName: postgres-pvc # Name of the PersistentVolumeClaim to use

@@ -37,15 +37,19 @@ spec: # The specification for the Deployment
           env: # Environment variables to set in the container
             - name: NODE_ENV # Environment variable name
               value: "production" # Environment variable value
+            - name: DATABASE_URL
+              value: "postgresql://postgres:postgres@postgres:5432/monorepo"
+            - name: BETTER_AUTH_SECRET
+              value: "super-secret-key-for-development-only"
           livenessProbe: # Checks if the container is alive and running
             httpGet: # Performs an HTTP GET request to check health
-              path: /health # The path to request for health check
+              path: /api/health # The path to request for health check
               port: 3001 # The port to connect to
             initialDelaySeconds: 15 # Wait 15 seconds before first probe
             periodSeconds: 20 # Check every 20 seconds thereafter
           readinessProbe: # Checks if the container is ready to serve requests
             httpGet: # Performs an HTTP GET request to check readiness
-              path: /health # The path to request for readiness check
+              path: /api/health # The path to request for readiness check
               port: 3001 # The port to connect to
             initialDelaySeconds: 5 # Wait 5 seconds before first probe
             periodSeconds: 10 # Check every 10 seconds thereafter

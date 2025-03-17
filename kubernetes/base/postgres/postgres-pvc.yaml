@@ -1,0 +1,21 @@
+# PostgreSQL PersistentVolumeClaim Configuration
+# This file defines a Kubernetes PersistentVolumeClaim for the PostgreSQL database
+# A PersistentVolumeClaim requests persistent storage that survives pod restarts
+
+apiVersion: v1 # The API version for PersistentVolumeClaim resources
+kind: PersistentVolumeClaim # The type of Kubernetes resource
+metadata: # Metadata about the PersistentVolumeClaim
+  name: postgres-pvc # The name of this PersistentVolumeClaim
+  labels: # Labels to identify this resource
+    app: postgres # Label that identifies this as part of the PostgreSQL application
+spec: # The specification for the PersistentVolumeClaim
+  accessModes: # How the volume can be mounted
+    - ReadWriteOnce # Can be mounted as read-write by a single node
+    # Other options include:
+    # - ReadOnlyMany (read-only by many nodes)
+    # - ReadWriteMany (read-write by many nodes, not supported by all storage providers)
+  resources: # Resource requirements for the PersistentVolumeClaim
+    requests: # The amount of storage to request
+      storage: 1Gi # 1 gigabyte of storage
+      # Note: For production, you'll likely want more storage (e.g., 10Gi or more)
+      # This is configured in the production overlay with postgres-pvc-patch.yaml

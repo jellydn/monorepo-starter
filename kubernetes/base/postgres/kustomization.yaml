@@ -1,0 +1,16 @@
+# PostgreSQL Kustomization Configuration
+# This file defines how Kustomize should process the PostgreSQL Kubernetes resources
+# Kustomize is a tool for customizing Kubernetes configurations without modifying the original YAML files
+
+apiVersion: kustomize.config.k8s.io/v1beta1 # The API version for the Kustomization resource
+kind: Kustomization # The type of resource being defined
+
+# List of Kubernetes resource files to include in this kustomization
+resources:
+  - postgres-deployment.yaml # Deployment for the PostgreSQL database
+  - postgres-service.yaml # Service for the PostgreSQL database
+  - postgres-configmap.yaml # ConfigMap for PostgreSQL configuration
+  - postgres-pvc.yaml # PersistentVolumeClaim for PostgreSQL data storage
+
+# Note: This kustomization file is included in the base kustomization.yaml
+# which means all these resources will be included in every environment

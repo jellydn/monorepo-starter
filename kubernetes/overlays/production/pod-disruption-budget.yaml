@@ -27,3 +27,16 @@ spec:
   selector:
     matchLabels:
       app: api
+---
+# PDB for the PostgreSQL database
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: postgres-pdb
+  namespace: monorepo-app
+spec:
+  # Since we have only 1 replica, we must ensure it's always available
+  maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: postgres

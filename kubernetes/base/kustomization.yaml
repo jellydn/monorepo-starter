@@ -15,6 +15,7 @@ resources: # List of Kubernetes resource files to include in this kustomization
   - ingress.yaml # Ingress for external access
   - configmap.yaml # ConfigMap for configuration data
   - autoscale.yaml # Horizontal Pod Autoscalers for web and API
+  - postgres/
 
 labels: # Labels to add to all resources
   - pairs: # Key-value pairs for labels

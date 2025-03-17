@@ -92,6 +92,10 @@ echo "Created temporary directory for manifests: $TEMP_DIR"
 cp -r kubernetes/overlays/local/*.yaml $TEMP_DIR/
 cp -r kubernetes/base/*.yaml $TEMP_DIR/
 
+# Create postgres directory and copy postgres manifests
+mkdir -p $TEMP_DIR/postgres
+cp -r kubernetes/base/postgres/*.yaml $TEMP_DIR/postgres/
+
 # Update image references in deployment files
 echo "Updating image references in deployment files..."
 sed -i.bak "s|\${REGISTRY_URL}|$REGISTRY_URL|g" $TEMP_DIR/web-deployment.yaml
@@ -124,6 +128,7 @@ resources:
   - ingress.yaml
   - configmap.yaml
   - autoscale.yaml
+  - postgres/
 
 commonLabels:
   environment: local
@@ -164,6 +169,7 @@ fi
 echo "You can access the application at:"
 echo "- Web: http://$DOMAIN"
 echo "- API: http://$API_DOMAIN"
+echo "- PostgreSQL: Available internally at postgres:5432"
 echo "Note: nip.io automatically resolves these domains to $IP_ADDRESS"
 echo "You can check the ingress status with: kubectl get ingress -n $NAMESPACE"
 
@@ -176,3 +182,4 @@ echo "Check services: kubectl get svc -n $NAMESPACE"
 echo "Check ingress: kubectl get ingress -n $NAMESPACE"
 echo "View logs for web: kubectl logs -n $NAMESPACE -l app=web"
 echo "View logs for api: kubectl logs -n $NAMESPACE -l app=api"
+echo "View logs for postgres: kubectl logs -n $NAMESPACE -l app=postgres"

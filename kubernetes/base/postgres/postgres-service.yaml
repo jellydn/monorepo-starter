@@ -1,0 +1,19 @@
+# PostgreSQL Service Configuration
+# This file defines a Kubernetes Service for the PostgreSQL database
+# A Service provides a stable network endpoint to access the PostgreSQL pods
+
+apiVersion: v1 # The API version for Service resources
+kind: Service # The type of Kubernetes resource
+metadata: # Metadata about the Service
+  name: postgres # The name of this Service
+  labels: # Labels to identify this resource
+    app: postgres # Label that identifies this as part of the PostgreSQL application
+spec: # The specification for the Service
+  ports: # List of ports that this Service exposes
+    - port: 5432 # The port that the Service listens on
+      targetPort: 5432 # The port on the Pod to forward traffic to
+      protocol: TCP # The protocol used for this port
+  selector: # Determines which Pods this Service routes traffic to
+    app: postgres # Selects Pods with the label "app: postgres"
+  # Note: This is a ClusterIP service (default), which means it's only accessible within the cluster
+  # This is appropriate for a database that should not be directly exposed outside the cluster

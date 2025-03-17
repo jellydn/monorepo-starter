@@ -35,7 +35,7 @@ spec: # The specification for the Deployment
           env: # Environment variables to set in the container
             - name: NODE_ENV # Environment variable name
               value: "production" # Environment variable value
-            - name: API_URL # Environment variable name
+            - name: NEXT_PUBLIC_API_URL # Environment variable name
               value: "${API_URL}" # Value from a variable, likely set during deployment
           livenessProbe: # Checks if the container is alive and running
             httpGet: # Performs an HTTP GET request to check health

@@ -1,0 +1,24 @@
+# Production PostgreSQL Deployment Patch
+# This file defines how to modify the base PostgreSQL Deployment for production environments
+# It increases resource allocations to handle production workloads
+
+apiVersion: apps/v1 # The API version for Deployment resources
+kind: Deployment # The type of Kubernetes resource
+metadata:
+  name: postgres # The name of the Deployment to patch
+spec:
+  replicas: 1 # Keep a single replica for the database to avoid data conflicts
+  template:
+    spec:
+      containers:
+        - name: postgres # The container name to patch
+          resources: # Override the resource configuration
+            requests: # Resources guaranteed to the container
+              memory: "512Mi" # Increase memory request to 512 megabytes
+              cpu: "250m" # Increase CPU request to 0.25 cores (250 milliCPU)
+            limits: # Maximum resources the container can use
+              memory: "1Gi" # Increase memory limit to 1 gigabyte
+              cpu: "1000m" # Increase CPU limit to 1 core (1000 milliCPU)
+
+# Note: This patch is applied in the production overlay via kustomization.yaml
+# It only affects the production environment, not development or staging

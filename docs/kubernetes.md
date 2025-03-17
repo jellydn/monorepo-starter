@@ -1,39 +1,6 @@
-# Kubernetes Configuration
+# Kubernetes Deployment
 
-This directory contains Kubernetes manifests and scripts to deploy the monorepo application to Kubernetes environments.
-
-## Documentation
-
-The detailed documentation for Kubernetes deployment has been moved to the docs folder for better organization:
-
-[Kubernetes Deployment Documentation](../docs/kubernetes.md)
-
-## Quick Start
-
-### Local Development
-
-To set up a local Kubernetes environment using Kind:
-
-```sh
-# Run the setup script
-./scripts/setup-local.sh
-
-# Deploy to local environment
-./scripts/deploy-local.sh
-```
-
-### Production Deployment
-
-For production deployment:
-
-```sh
-# Deploy to production with custom settings
-REGISTRY_URL=your-registry.example.com \
-CONTEXT=your-production-context \
-DOMAIN=next-app-demo.itman.fyi \
-API_DOMAIN=express-api-demo.itman.fyi \
-./scripts/deploy-production.sh
-```
+This document describes how to deploy the monorepo application to Kubernetes environments.
 
 ## Directory Structure
 
@@ -199,10 +166,10 @@ To set up a local Kubernetes environment using Kind:
 
 ```sh
 # Run the setup script
-./scripts/setup-local.sh
+./kubernetes/scripts/setup-local.sh
 
 # Deploy to local environment
-./scripts/deploy-local.sh
+./kubernetes/scripts/deploy-local.sh
 ```
 
 ### Production Deployment
@@ -215,21 +182,21 @@ REGISTRY_URL=your-registry.example.com \
 CONTEXT=your-production-context \
 DOMAIN=next-app-demo.itman.fyi \
 API_DOMAIN=express-api-demo.itman.fyi \
-./scripts/deploy-production.sh
+./kubernetes/scripts/deploy-production.sh
 ```
 
-For detailed instructions on production deployment, see the [Production README](./overlays/production/README.md).
+For detailed instructions on production deployment, see the [Production README](../kubernetes/overlays/production/README.md).
 
 ### Environment-Specific Configurations
 
-For information on deploying to different environments (cloud providers, VMs, physical servers), see the [Environments Guide](./overlays/production/ENVIRONMENTS.md).
+For information on deploying to different environments (cloud providers, VMs, physical servers), see the [Environments Guide](../kubernetes/overlays/production/ENVIRONMENTS.md).
 
 ## Kubernetes GUI Tools
 
 For easier management of your Kubernetes cluster, you can install various GUI tools:
 
 ```bash
-./scripts/install-gui-tools.sh
+./kubernetes/scripts/install-gui-tools.sh
 ```
 
 This script provides a menu to install and configure the following tools:
@@ -258,7 +225,7 @@ You can deploy the application using pre-built images from GitHub Container Regi
 
 ```sh
 # Deploy using GHCR images
-USE_GHCR=true GHCR_USERNAME=your-github-username GHCR_REPO=monorepo-starter GHCR_TAG=latest ./scripts/deploy-local.sh
+USE_GHCR=true GHCR_USERNAME=your-github-username GHCR_REPO=monorepo-starter GHCR_TAG=latest ./kubernetes/scripts/deploy-local.sh
 ```
 
 For more information on using GHCR, see the main [README.md](../README.md).

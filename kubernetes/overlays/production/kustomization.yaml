@@ -30,6 +30,8 @@ patchesStrategicMerge:
   - web-deployment-patch.yaml
   - api-deployment-patch.yaml
   - configmap-patch.yaml
+  - postgres-deployment-patch.yaml
+  - postgres-pvc-patch.yaml
 
 # Add production-specific labels to all resources
 commonLabels:

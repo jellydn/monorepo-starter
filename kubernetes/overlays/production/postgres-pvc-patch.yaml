@@ -1,0 +1,17 @@
+# Production PostgreSQL PersistentVolumeClaim Patch
+# This file defines how to modify the base PostgreSQL PVC for production environments
+# It increases the storage allocation to handle production data volumes
+
+apiVersion: v1 # The API version for PersistentVolumeClaim resources
+kind: PersistentVolumeClaim # The type of Kubernetes resource
+metadata:
+  name: postgres-pvc # The name of the PVC to patch
+spec:
+  resources:
+    requests:
+      storage: 10Gi # Increase storage request to 10 gigabytes
+      # The base configuration only requests 1Gi, which is sufficient for development
+      # but not for production workloads
+# Note: This patch is applied in the production overlay via kustomization.yaml
+# It only affects the production environment, not development or staging
+# For cloud providers, this may affect billing as larger volumes cost more
