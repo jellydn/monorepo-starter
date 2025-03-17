@@ -29,6 +29,9 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 # Build the project
 COPY --from=builder /app/out/full/ .
 
+# Generate Prisma client
+RUN cd packages/db && pnpm db:generate
+
 # Uncomment and use build args to enable remote caching
 # ARG TURBO_TEAM
 # ENV TURBO_TEAM=$TURBO_TEAM
