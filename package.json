@@ -1,10 +1,12 @@
 {
-	"name": "with-docker",
+	"name": "monorepo-with-k8s",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
 		"build": "turbo run build",
 		"clean": "turbo run clean",
+		"lint": "turbo run lint",
+		"typecheck": "turbo run typecheck",
 		"dev": "turbo run dev",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
 		"test": "turbo run test"
