@@ -15,6 +15,7 @@ kubernetes/
 │   ├── namespace.yaml
 │   ├── web-deployment.yaml
 │   ├── web-service.yaml
+│   ├── db-migration-job.yaml  # Database migration job
 │   └── postgres/         # PostgreSQL database configuration
 │       ├── postgres-deployment.yaml
 │       ├── postgres-service.yaml
@@ -53,6 +54,7 @@ kubernetes/
     ├── setup-local.sh
     ├── deploy-local.sh
     ├── deploy-production.sh
+    ├── run-migration.sh        # Script for manual database migrations
     ├── install-dashboard.sh
     ├── install-gui-tools.sh
     ├── install-k9s.sh
@@ -119,6 +121,46 @@ postgresql://postgres:postgres@postgres:5432/monorepo
 
 This connection string is configured in the API deployment as an environment variable.
 
+## Database Migrations
+
+The application uses Prisma for database migrations. Migrations are automatically run during deployment using a Kubernetes Job.
+
+### Migration Job
+
+The migration job is defined in `kubernetes/base/db-migration-job.yaml` and:
+
+1. Uses the same container image as the API service
+2. Runs `npx prisma migrate deploy` to apply any pending migrations
+3. Includes an init container that waits for the database to be ready
+4. Has a backoff limit to retry failed migrations
+5. Is automatically deleted after completion (TTL)
+
+### Manual Migrations
+
+For manual migrations, you can use the `run-migration.sh` script:
+
+```sh
+# Run migrations in the default namespace
+./kubernetes/scripts/run-migration.sh
+
+# Run migrations in a specific namespace
+./kubernetes/scripts/run-migration.sh --namespace=custom-namespace
+
+# Run migrations with a specific Kubernetes context
+./kubernetes/scripts/run-migration.sh --context=production-cluster
+```
+
+### Deployment Order
+
+During deployment, resources are applied in the following order:
+
+1. Namespace and ConfigMaps
+2. PostgreSQL database
+3. Database migration job
+4. API and Web services
+
+The API deployment includes an annotation (`depends-on: "db-migration"`) to indicate that it should start after the migration job completes.
+
 ## Kubernetes Templates
 
 This repository offers two Kubernetes deployment templates:
@@ -156,6 +198,7 @@ The current template uses a more sophisticated structure with Kustomize overlays
 | **High Availability**   | Not configured                    | Configured (pod disruption budgets, multiple replicas)   |
 | **Resource Management** | Basic                             | Advanced (resource quotas, limits)                       |
 | **Database**            | Not included                      | PostgreSQL with persistent storage                       |
+| **Migrations**          | Not included                      | Automated via Kubernetes Jobs                            |
 | **Best For**            | Learning, simple deployments      | Production, multi-environment setups                     |
 
 ## Deployment Instructions

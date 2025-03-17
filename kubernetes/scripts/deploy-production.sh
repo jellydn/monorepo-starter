@@ -13,6 +13,7 @@ API_DOMAIN=${API_DOMAIN:-"express-api-demo.itman.fyi"}
 USE_CLOUDFLARE=${USE_CLOUDFLARE:-"true"}
 NAMESPACE=${NAMESPACE:-"monorepo-app"}
 GHCR_TAG=${GHCR_TAG:-"latest"}
+TIMESTAMP=$(date +%s)
 
 # Display banner
 echo "=================================================="
@@ -29,6 +30,7 @@ echo "Kubernetes Context: ${CONTEXT:-"default"}"
 echo "Namespace: $NAMESPACE"
 echo "Using Cloudflare: $USE_CLOUDFLARE"
 echo "Image Tag: $GHCR_TAG"
+echo "Timestamp: $TIMESTAMP"
 echo "------------------------"
 
 # Set Kubernetes context if provided
@@ -68,6 +70,7 @@ echo "Created temporary directory for manifests: $TEMP_DIR"
 
 # Copy all manifests to the temporary directory
 cp -r kubernetes/overlays/production/*.yaml $TEMP_DIR/
+cp -r kubernetes/base/db-migration-job.yaml $TEMP_DIR/
 
 # Update domain names in ingress patch
 echo "Updating domain names in ingress patch..."
@@ -87,6 +90,11 @@ echo "Updating URLs in configmap patch..."
 sed -i.bak "s|https://express-api-demo.itman.fyi|https://$API_DOMAIN|g" $TEMP_DIR/configmap-patch.yaml
 sed -i.bak "s|https://next-app-demo.itman.fyi|https://$DOMAIN|g" $TEMP_DIR/configmap-patch.yaml
 
+# Update timestamps for deployments and jobs
+echo "Updating timestamps for deployments and jobs..."
+sed -i.bak "s|\${TIMESTAMP}|$TIMESTAMP|g" $TEMP_DIR/db-migration-job.yaml
+sed -i.bak "s|\${REGISTRY_URL}|$REGISTRY_URL|g" $TEMP_DIR/db-migration-job.yaml
+
 # Create a temporary kustomization file
 cat > $TEMP_DIR/kustomization.yaml <<EOF
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -98,6 +106,7 @@ resources:
   - network-policy.yaml
   - pod-disruption-budget.yaml
   - resource-quota.yaml
+  - db-migration-job.yaml
   - ../../kubernetes/base
 
 patchesStrategicMerge:
@@ -160,4 +169,5 @@ echo "Check services: kubectl get svc -n $NAMESPACE"
 echo "Check ingress: kubectl get ingress -n $NAMESPACE"
 echo "View logs for web: kubectl logs -n $NAMESPACE -l app=web"
 echo "View logs for api: kubectl logs -n $NAMESPACE -l app=api"
+echo "View migration logs: kubectl logs -n $NAMESPACE -l app=db-migration"
 echo "Scale deployments: kubectl scale deployment/web -n $NAMESPACE --replicas=5"

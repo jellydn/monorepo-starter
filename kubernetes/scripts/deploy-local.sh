@@ -100,6 +100,7 @@ cp -r kubernetes/base/postgres/*.yaml $TEMP_DIR/postgres/
 echo "Updating image references in deployment files..."
 sed -i.bak "s|\${REGISTRY_URL}|$REGISTRY_URL|g" $TEMP_DIR/web-deployment.yaml
 sed -i.bak "s|\${REGISTRY_URL}|$REGISTRY_URL|g" $TEMP_DIR/api-deployment.yaml
+sed -i.bak "s|\${REGISTRY_URL}|$REGISTRY_URL|g" $TEMP_DIR/db-migration-job.yaml
 
 # Update domain names in ingress
 echo "Updating domain names in ingress..."
@@ -111,6 +112,7 @@ echo "Updating API URL in web deployment..."
 sed -i.bak "s|\${API_URL}|$API_URL|g" $TEMP_DIR/web-deployment.yaml
 sed -i.bak "s|\${TIMESTAMP}|$TIMESTAMP|g" $TEMP_DIR/web-deployment.yaml
 sed -i.bak "s|\${TIMESTAMP}|$TIMESTAMP|g" $TEMP_DIR/api-deployment.yaml
+sed -i.bak "s|\${TIMESTAMP}|$TIMESTAMP|g" $TEMP_DIR/db-migration-job.yaml
 
 # Create a temporary kustomization file
 cat > $TEMP_DIR/kustomization.yaml <<EOF
@@ -128,6 +130,7 @@ resources:
   - ingress.yaml
   - configmap.yaml
   - autoscale.yaml
+  - db-migration-job.yaml
   - postgres/
 
 commonLabels:
@@ -183,3 +186,4 @@ echo "Check ingress: kubectl get ingress -n $NAMESPACE"
 echo "View logs for web: kubectl logs -n $NAMESPACE -l app=web"
 echo "View logs for api: kubectl logs -n $NAMESPACE -l app=api"
 echo "View logs for postgres: kubectl logs -n $NAMESPACE -l app=postgres"
+echo "View migration logs: kubectl logs -n $NAMESPACE -l app=db-migration"

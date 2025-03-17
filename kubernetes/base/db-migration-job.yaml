@@ -1,0 +1,50 @@
+# This file defines a Kubernetes Job for running database migrations
+# A Job creates one or more Pods and ensures they successfully terminate
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migration
+  namespace: monorepo-app
+  labels:
+    app: db-migration
+  annotations:
+    # This annotation ensures a new job is created on each deployment
+    # It will be replaced with a timestamp during deployment
+    timestamp: "${TIMESTAMP}"
+spec:
+  backoffLimit: 3 # Number of retries before considering the job failed
+  ttlSecondsAfterFinished: 3600 # Delete job 1 hour after completion
+  template:
+    metadata:
+      labels:
+        app: db-migration
+    spec:
+      restartPolicy: OnFailure # Only restart if the pod fails
+      containers:
+        - name: migration
+          image: ${REGISTRY_URL}/api:latest # Use the same image as the API
+          imagePullPolicy: Always
+          command:
+            [
+              "npx",
+              "prisma",
+              "migrate",
+              "deploy",
+              "--schema=/app/packages/db/prisma/schema.prisma",
+            ]
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://postgres:postgres@postgres:5432/monorepo"
+            - name: NODE_ENV
+              value: "production"
+      # Ensure the job runs after the database is available
+      initContainers:
+        - name: wait-for-db
+          image: postgres:17-alpine
+          command:
+            [
+              "sh",
+              "-c",
+              "until pg_isready -h postgres -p 5432 -U postgres; do echo waiting for database; sleep 2; done;",
+            ]

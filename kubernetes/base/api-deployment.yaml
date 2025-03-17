@@ -8,6 +8,9 @@ metadata: # Metadata about the Deployment
   namespace: monorepo-app # The Kubernetes namespace this Deployment belongs to
   labels: # Key-value pairs used to organize and select Kubernetes objects
     app: api # Label that identifies this Deployment as part of the API application
+  annotations:
+    # This annotation ensures the deployment waits for the migration job
+    depends-on: "db-migration"
 spec: # The specification for the Deployment
   replicas: 1 # Number of identical pod copies to maintain (only 1 in this case)
   selector: # Defines how the Deployment finds which Pods to manage
