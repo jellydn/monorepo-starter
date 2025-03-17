@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import { logger } from "@repo/logger";
+import { NextResponse } from "next/server";
 
 // Store the build time when the server starts
 const BUILD_TIME = new Date().toISOString();

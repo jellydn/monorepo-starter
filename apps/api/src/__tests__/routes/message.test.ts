@@ -34,7 +34,9 @@ describe("Message Routes", () => {
 			const response = await app.get(`/api/message/${longName}`);
 
 			expect(response.status).toBe(400);
-			expect(response.body).toEqual({ error: "Name must be less than 50 characters" });
+			expect(response.body).toEqual({
+				error: "Name must be less than 50 characters",
+			});
 		});
 
 		it("should return 400 when name contains invalid characters", async () => {
@@ -42,7 +44,9 @@ describe("Message Routes", () => {
 			const response = await app.get(`/api/message/${invalidName}`);
 
 			expect(response.status).toBe(400);
-			expect(response.body).toEqual({ error: "Name contains invalid characters" });
+			expect(response.body).toEqual({
+				error: "Name contains invalid characters",
+			});
 		});
 
 		it("should trim whitespace from name", async () => {

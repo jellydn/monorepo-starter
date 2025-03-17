@@ -1,21 +1,23 @@
+import type { NextFunction, Request, Response } from "express";
 import supertest from "supertest";
-import { describe, expect, it, vi, beforeEach } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { createServer } from "../../server";
-import type { Request, Response, NextFunction } from "express";
 
 // Mock the auth module
 vi.mock("@repo/auth", () => ({
 	auth: {
 		api: {
-			getSession: vi.fn()
-		}
-	}
+			getSession: vi.fn(),
+		},
+	},
 }));
 
 // Mock better-auth/node
 vi.mock("better-auth/node", () => ({
-	toNodeHandler: vi.fn(() => (req: Request, res: Response, next: NextFunction) => next()),
-	fromNodeHeaders: vi.fn((headers) => headers)
+	toNodeHandler: vi.fn(
+		() => (req: Request, res: Response, next: NextFunction) => next(),
+	),
+	fromNodeHeaders: vi.fn((headers) => headers),
 }));
 
 describe("Auth Routes", () => {

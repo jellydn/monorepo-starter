@@ -1,6 +1,6 @@
-import { Router, type IRouter } from "express";
 import { auth } from "@repo/auth";
 import { toNodeHandler } from "better-auth/node";
+import { type IRouter, Router } from "express";
 
 const router: IRouter = Router();
 

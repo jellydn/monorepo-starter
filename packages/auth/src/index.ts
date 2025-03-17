@@ -1,11 +1,11 @@
+import { db } from "@repo/db";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { db } from "@repo/db";
 
 export const auth = betterAuth({
 	// Database configuration
 	database: prismaAdapter(db, {
-		provider: "postgresql"
+		provider: "postgresql",
 	}),
 	// Session configuration
 	session: {

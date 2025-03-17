@@ -2,33 +2,17 @@
 	"$schema": "https://turbo.build/schema.json",
 	"tasks": {
 		"build": {
-			"inputs": [
-				"$TURBO_DEFAULT$",
-				".env*"
-			],
-			"outputs": [
-				"dist/**",
-				".next/**",
-				"!.next/cache/**",
-				"public/dist/**"
-			],
-			"dependsOn": [
-				"^build"
-			],
-			"env": [
-				"NEXT_PUBLIC_API_HOST"
-			]
+			"inputs": ["$TURBO_DEFAULT$", ".env*"],
+			"outputs": ["dist/**", ".next/**", "!.next/cache/**", "public/dist/**"],
+			"dependsOn": ["^build"],
+			"env": ["NEXT_PUBLIC_API_HOST"]
 		},
 		"test": {
-			"outputs": [
-				"coverage/**"
-			],
+			"outputs": ["coverage/**"],
 			"dependsOn": []
 		},
 		"lint": {
-			"dependsOn": [
-				"^build"
-			]
+			"dependsOn": ["^build"]
 		},
 		"dev": {
 			"cache": false,

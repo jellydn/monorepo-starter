@@ -1,6 +1,11 @@
-import { Router, type IRouter, type Request, type RequestHandler } from "express";
-import { authMiddleware } from "../middleware/auth";
 import type { auth } from "@repo/auth";
+import {
+	type IRouter,
+	type Request,
+	type RequestHandler,
+	Router,
+} from "express";
+import { authMiddleware } from "../middleware/auth";
 
 const router: IRouter = Router();
 

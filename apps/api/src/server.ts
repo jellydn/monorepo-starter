@@ -1,15 +1,21 @@
+import { logger } from "@repo/logger";
 import { json, urlencoded } from "body-parser";
 import cors from "cors";
-import express, { type Express, type Request, type Response, type NextFunction } from "express";
+import express, {
+	type Express,
+	type Request,
+	type Response,
+	type NextFunction,
+} from "express";
 import morgan from "morgan";
 import routes from "./routes";
-import { logger } from "@repo/logger";
 
 export const createServer = (): Express => {
 	const app = express();
 
 	// Global middleware
-	app.disable("x-powered-by")
+	app
+		.disable("x-powered-by")
 		.use(morgan("dev"))
 		// In Express 5, extended defaults to false, but we'll set it explicitly for clarity
 		.use(urlencoded({ extended: false }))

@@ -1,22 +1,24 @@
-import supertest from "supertest";
-import { describe, expect, it, vi, beforeEach } from "vitest";
-import { createServer } from "../../server";
 import { auth } from "@repo/auth";
-import type { Request, Response, NextFunction } from "express";
+import type { NextFunction, Request, Response } from "express";
+import supertest from "supertest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { createServer } from "../../server";
 
 // Mock the auth module
 vi.mock("@repo/auth", () => ({
 	auth: {
 		api: {
-			getSession: vi.fn()
-		}
-	}
+			getSession: vi.fn(),
+		},
+	},
 }));
 
 // Mock better-auth/node
 vi.mock("better-auth/node", () => ({
-	toNodeHandler: vi.fn(() => (req: Request, res: Response, next: NextFunction) => next()),
-	fromNodeHeaders: vi.fn((headers) => headers)
+	toNodeHandler: vi.fn(
+		() => (req: Request, res: Response, next: NextFunction) => next(),
+	),
+	fromNodeHeaders: vi.fn((headers) => headers),
 }));
 
 describe("User Routes", () => {
@@ -28,7 +30,7 @@ describe("User Routes", () => {
 		emailVerified: true,
 		createdAt: new Date("2024-01-01"),
 		updatedAt: new Date("2024-01-01"),
-		image: "https://example.com/avatar.jpg"
+		image: "https://example.com/avatar.jpg",
 	};
 
 	const mockSession = {
@@ -37,7 +39,7 @@ describe("User Routes", () => {
 		updatedAt: new Date("2024-01-01"),
 		userId: mockUser.id,
 		expiresAt: new Date("2024-12-31"),
-		token: "valid-token"
+		token: "valid-token",
 	};
 
 	beforeEach(() => {
@@ -60,7 +62,7 @@ describe("User Routes", () => {
 		it("should return 200 and user data when session exists", async () => {
 			vi.mocked(auth.api.getSession).mockResolvedValueOnce({
 				session: mockSession,
-				user: mockUser
+				user: mockUser,
 			});
 
 			const response = await app
@@ -73,14 +75,14 @@ describe("User Routes", () => {
 				user: {
 					...mockUser,
 					createdAt: mockUser.createdAt.toISOString(),
-					updatedAt: mockUser.updatedAt.toISOString()
-				}
+					updatedAt: mockUser.updatedAt.toISOString(),
+				},
 			});
 		});
 
 		it("should handle server errors gracefully", async () => {
 			vi.mocked(auth.api.getSession).mockRejectedValueOnce(
-				new Error("Auth service error")
+				new Error("Auth service error"),
 			);
 
 			const response = await app

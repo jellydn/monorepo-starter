@@ -1,7 +1,7 @@
 import { auth } from "@repo/auth";
-import { fromNodeHeaders } from "better-auth/node";
-import type { Request, Response, NextFunction, RequestHandler } from "express";
 import { logger } from "@repo/logger";
+import { fromNodeHeaders } from "better-auth/node";
+import type { NextFunction, Request, RequestHandler, Response } from "express";
 
 // Define custom request type with user property
 interface AuthenticatedRequest extends Request {

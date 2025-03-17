@@ -1,4 +1,4 @@
-import { Router, type IRouter, type RequestHandler } from "express";
+import { type IRouter, type RequestHandler, Router } from "express";
 
 const router: IRouter = Router();
 
