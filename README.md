@@ -5,7 +5,13 @@
 Run the following command:
 
 ```sh
-git clone https://github.com/jellydn/monorepo-starer
+git clone https://github.com/jellydn/monorepo-starter
+```
+
+or
+
+```sh
+pnpm dlx create-turbo@latest -m pnpm -e https://github.com/jellydn/monorepo-starter YOUR_PROJECT
 ```
 
 ## What's inside?
