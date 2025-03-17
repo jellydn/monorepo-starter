@@ -1,9 +1,10 @@
-import { consola } from "consola";
-import { createServer } from "./server";
+import { logger } from "@repo/logger";
+import { startServer } from "./server";
 
-const port = process.env.PORT || 3001;
-const server = createServer();
+const port = Number(process.env.PORT) || 3001;
 
-server.listen(port, () => {
-	consola.info(`api running on ${port}`);
+// Start server with proper error handling
+startServer(port).catch((error) => {
+	logger.error("Failed to start server:", error);
+	process.exit(1);
 });
