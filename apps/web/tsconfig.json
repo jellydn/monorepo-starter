@@ -5,7 +5,18 @@
 			{
 				"name": "next"
 			}
-		]
+		],
+		"paths": {
+			"@/*": [
+				"./src/*"
+			],
+			"@/components/*": [
+				"./src/components/*"
+			],
+			"@/lib/*": [
+				"./src/lib/*"
+			]
+		}
 	},
 	"include": [
 		"next-env.d.ts",
@@ -14,5 +25,7 @@
 		"**/*.tsx",
 		".next/types/**/*.ts"
 	],
-	"exclude": ["node_modules"]
+	"exclude": [
+		"node_modules"
+	]
 }
