@@ -10,10 +10,4 @@ metadata: # Metadata about the ConfigMap
     app: postgres # Label that identifies this as part of the PostgreSQL application
 data: # The actual configuration data
   # These environment variables will be used by the PostgreSQL container
-  POSTGRES_USER: postgres # The username for the PostgreSQL database
-  POSTGRES_PASSWORD: postgres # The password for the PostgreSQL database (in production, use Secrets instead)
   POSTGRES_DB: monorepo # The name of the database to create
-
-
-  # Note: For production environments, it's recommended to use Kubernetes Secrets
-  # instead of ConfigMaps for sensitive data like passwords

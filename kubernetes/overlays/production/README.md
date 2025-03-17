@@ -15,9 +15,35 @@ This directory contains Kubernetes configuration overlays for the production env
 - **web-deployment-patch.yaml**: Production settings for web application
 - **api-deployment-patch.yaml**: Production settings for API application
 - **configmap-patch.yaml**: Production environment variables
+- **postgres-secrets-patch.yaml**: Production database credentials
+- **api-secrets-patch.yaml**: Production API secrets
 - **network-policy.yaml**: Network security policies
 - **pod-disruption-budget.yaml**: High availability settings
 - **resource-quota.yaml**: Resource usage limits
+
+## Secret Management
+
+This configuration uses Kubernetes Secrets for managing sensitive information:
+
+- **Database Credentials**: Stored in `postgres-secrets` Secret
+- **API Authentication Keys**: Stored in `api-secrets` Secret
+
+For enhanced security in production environments, consider using:
+
+1. **External Secret Management**:
+
+   - HashiCorp Vault
+   - AWS Secrets Manager
+   - Azure Key Vault
+   - Google Secret Manager
+
+2. **Sealed Secrets**:
+
+   - Use Bitnami Sealed Secrets to encrypt secrets in Git
+
+3. **Environment Variables**:
+   - Pass sensitive values through CI/CD pipelines
+   - The deployment script supports `POSTGRES_PASSWORD` and `AUTH_SECRET` environment variables
 
 ## Deployment Instructions
 

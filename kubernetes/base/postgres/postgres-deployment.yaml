@@ -25,15 +25,15 @@ spec: # The specification for the Deployment
             - containerPort: 5432 # The standard PostgreSQL port
           env: # Environment variables to set in the container
             - name: POSTGRES_USER # Database username
-              valueFrom: # Get value from a ConfigMap
-                configMapKeyRef:
-                  name: postgres-config # Name of the ConfigMap
-                  key: POSTGRES_USER # Key in the ConfigMap
+              valueFrom: # Get value from a Secret
+                secretKeyRef:
+                  name: postgres-secrets # Name of the Secret
+                  key: POSTGRES_USER # Key in the Secret
             - name: POSTGRES_PASSWORD # Database password
-              valueFrom: # Get value from a ConfigMap
-                configMapKeyRef:
-                  name: postgres-config # Name of the ConfigMap
-                  key: POSTGRES_PASSWORD # Key in the ConfigMap
+              valueFrom: # Get value from a Secret
+                secretKeyRef:
+                  name: postgres-secrets # Name of the Secret
+                  key: POSTGRES_PASSWORD # Key in the Secret
             - name: POSTGRES_DB # Database name
               valueFrom: # Get value from a ConfigMap
                 configMapKeyRef:

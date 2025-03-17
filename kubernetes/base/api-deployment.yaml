@@ -41,9 +41,15 @@ spec: # The specification for the Deployment
             - name: NODE_ENV # Environment variable name
               value: "production" # Environment variable value
             - name: DATABASE_URL
-              value: "postgresql://postgres:postgres@postgres:5432/monorepo"
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: DATABASE_URL
             - name: BETTER_AUTH_SECRET
-              value: "super-secret-key-for-development-only"
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: BETTER_AUTH_SECRET
           livenessProbe: # Checks if the container is alive and running
             httpGet: # Performs an HTTP GET request to check health
               path: /api/health # The path to request for health check

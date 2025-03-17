@@ -9,6 +9,7 @@ kind: Kustomization # The type of resource being defined
 resources:
   - postgres-deployment.yaml # Deployment for the PostgreSQL database
   - postgres-service.yaml # Service for the PostgreSQL database
+  - postgres-secrets.yaml # Secrets for PostgreSQL credentials
   - postgres-configmap.yaml # ConfigMap for PostgreSQL configuration
   - postgres-pvc.yaml # PersistentVolumeClaim for PostgreSQL data storage
 

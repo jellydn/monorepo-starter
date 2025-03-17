@@ -15,6 +15,10 @@ NAMESPACE=${NAMESPACE:-"monorepo-app"}
 GHCR_TAG=${GHCR_TAG:-"latest"}
 TIMESTAMP=$(date +%s)
 
+# Secret values with defaults (in production, these should be provided via CI/CD secrets)
+POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-$(openssl rand -base64 20)}
+AUTH_SECRET=${AUTH_SECRET:-$(openssl rand -base64 32)}
+
 # Display banner
 echo "=================================================="
 echo "  Production Deployment to Kubernetes"
@@ -77,6 +81,11 @@ echo "Updating domain names in ingress patch..."
 sed -i.bak "s/next-app-demo.itman.fyi/$DOMAIN/g" $TEMP_DIR/ingress-patch.yaml
 sed -i.bak "s/express-api-demo.itman.fyi/$API_DOMAIN/g" $TEMP_DIR/ingress-patch.yaml
 
+# Update secret values
+echo "Updating secret values..."
+sed -i.bak "s/\${POSTGRES_PASSWORD}/$POSTGRES_PASSWORD/g" $TEMP_DIR/postgres-secrets-patch.yaml
+sed -i.bak "s/\${AUTH_SECRET}/$AUTH_SECRET/g" $TEMP_DIR/api-secrets-patch.yaml
+
 # Update API URL in web deployment patch
 echo "Updating API URL in web deployment patch..."
 sed -i.bak "s|https://express-api-demo.itman.fyi|https://$API_DOMAIN|g" $TEMP_DIR/web-deployment-patch.yaml
@@ -114,6 +123,8 @@ patchesStrategicMerge:
   - web-deployment-patch.yaml
   - api-deployment-patch.yaml
   - configmap-patch.yaml
+  - postgres-secrets-patch.yaml
+  - api-secrets-patch.yaml
 
 images:
   - name: \${REGISTRY_URL}/web

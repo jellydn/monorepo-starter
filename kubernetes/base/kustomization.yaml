@@ -16,6 +16,7 @@ resources: # List of Kubernetes resource files to include in this kustomization
   - configmap.yaml # ConfigMap for configuration data
   - autoscale.yaml # Horizontal Pod Autoscalers for web and API
   - db-migration-job.yaml # Job for database migrations
+  - api-secrets.yaml # Secrets for the API application
   - postgres/
 
 labels: # Labels to add to all resources

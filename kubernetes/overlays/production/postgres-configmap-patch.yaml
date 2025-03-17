@@ -1,0 +1,11 @@
+# Production PostgreSQL ConfigMap Patch
+# This file patches the base PostgreSQL ConfigMap for production use
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  labels:
+    environment: production
+data:
+  POSTGRES_DB: monorepo_prod

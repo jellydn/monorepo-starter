@@ -35,7 +35,10 @@ spec:
             ]
           env:
             - name: DATABASE_URL
-              value: "postgresql://postgres:postgres@postgres:5432/monorepo"
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: DATABASE_URL
             - name: NODE_ENV
               value: "production"
       # Ensure the job runs after the database is available
