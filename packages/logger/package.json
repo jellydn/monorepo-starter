@@ -16,12 +16,12 @@
 	"license": "ISC",
 	"description": "",
 	"dependencies": {
-		"consola": "^3.2.3"
+		"consola": "3.4.0"
 	},
 	"devDependencies": {
 		"@repo/typescript-config": "workspace:*",
-		"@types/node": "^22.13.10",
-		"tsup": "^8.0.2",
-		"typescript": "^5.3.3"
+		"@types/node": "22.13.10",
+		"tsup": "8.4.0",
+		"typescript": "5.8.2"
 	}
 }
