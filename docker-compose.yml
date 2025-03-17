@@ -27,6 +27,19 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/monorepo
     depends_on:
       - db
+      - migration
+    networks:
+      - app_network
+  migration:
+    container_name: migration
+    image: ${GHCR_REGISTRY:-ghcr.io}/${GHCR_USERNAME:-username}/${GHCR_REPO:-monorepo-starter}-api:${GHCR_TAG:-latest}
+    command: npx prisma migrate deploy --schema=/app/packages/db/prisma/schema.prisma
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/monorepo
+    volumes:
+      - ./packages/db/prisma:/app/packages/db/prisma
+    depends_on:
+      - db
     networks:
       - app_network
   db:
