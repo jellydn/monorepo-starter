@@ -1,0 +1,32 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+// Better Auth required models
+model User {
+    id           String    @id @default(cuid())
+    email        String    @unique
+    name         String?
+    passwordHash String
+    sessions     Session[]
+    createdAt    DateTime  @default(now())
+    updatedAt    DateTime  @updatedAt
+}
+
+model Session {
+    id         String   @id @default(cuid())
+    userId     String
+    user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    token      String   @unique
+    expiresAt  DateTime
+    createdAt  DateTime @default(now())
+    lastUsedAt DateTime @default(now())
+
+    @@index([userId])
+    @@index([token])
+}
