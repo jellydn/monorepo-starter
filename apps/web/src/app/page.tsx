@@ -67,8 +67,19 @@ export default function Web() {
 			return;
 		}
 
+		// Add validation for required name field
+		if (!name.trim()) {
+			setError("Name is required");
+			return;
+		}
+
 		try {
-			const result = await fetch(`${apiUrl}/message/${name}`);
+			const result = await fetch(`${apiUrl}/api/message/${name}`);
+			if (!result.ok) {
+				const errorData = await result.json();
+				setError(errorData.error || "Failed to get greeting");
+				return;
+			}
 			const response = await result.json();
 			setResponse(response);
 		} catch {
@@ -218,6 +229,7 @@ export default function Web() {
 								value={name}
 								onChange={onChange}
 								placeholder="Enter your name"
+								required
 								style={{
 									width: "92%",
 									padding: "0.75rem 1rem",

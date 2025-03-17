@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
+import { logger } from "@repo/logger";
 
 // Store the build time when the server starts
 const BUILD_TIME = new Date().toISOString();
 
 export async function GET() {
 	// Get the API URL from the environment variable
-	const apiUrl = process.env.API_URL || "http://localhost:3001";
+	const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 	// Log the API URL for debugging
-	console.log("API URL from environment:", apiUrl);
+	logger.info("API URL from environment:", apiUrl);
 
 	// Return the configuration as JSON
 	return NextResponse.json({

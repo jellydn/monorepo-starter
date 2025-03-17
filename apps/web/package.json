@@ -8,6 +8,7 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"@repo/logger": "workspace:*",
 		"@repo/ui": "workspace:*",
 		"next": "15.2.2",
 		"react": "19.0.0",
