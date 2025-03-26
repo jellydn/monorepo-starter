@@ -33,8 +33,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/logger
       better-auth:
-        specifier: 1.2.4
-        version: 1.2.4(typescript@5.8.2)
+        specifier: 1.2.5
+        version: 1.2.5(typescript@5.8.2)
       body-parser:
         specifier: 1.20.3
         version: 1.20.3
@@ -106,8 +106,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       better-auth:
-        specifier: 1.2.4
-        version: 1.2.4(typescript@5.8.2)
+        specifier: 1.2.5
+        version: 1.2.5(typescript@5.8.2)
       next:
         specifier: 15.2.4
         version: 15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -149,8 +149,8 @@ importers:
         specifier: 22.13.13
         version: 22.13.13
       better-auth:
-        specifier: 1.2.4
-        version: 1.2.4(typescript@5.8.2)
+        specifier: 1.2.5
+        version: 1.2.5(typescript@5.8.2)
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -251,8 +251,8 @@ packages:
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
 
-  '@better-auth/utils@0.2.3':
-    resolution: {integrity: sha512-Ap1GaSmo6JYhJhxJOpUB0HobkKPTNzfta+bLV89HfpyCAHN7p8ntCrmNFHNAVD0F6v0mywFVEUg1FUhNCc81Rw==}
+  '@better-auth/utils@0.2.4':
+    resolution: {integrity: sha512-ayiX87Xd5sCHEplAdeMgwkA0FgnXsEZBgDn890XHHwSWNqqRZDYOq3uj2Ei2leTv1I2KbG5HHn60Ah1i2JWZjQ==}
 
   '@better-fetch/fetch@1.1.17':
     resolution: {integrity: sha512-MQonMalbmEshb+amuLtCkVjYliyyWrYXZkiMnHLgFjNEBsNBbZSY3+lYsFK1/VxePSupVkUW6xinqhqB3uHE1g==}
@@ -972,8 +972,8 @@ packages:
     resolution: {integrity: sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==}
     engines: {node: '>= 0.8'}
 
-  better-auth@1.2.4:
-    resolution: {integrity: sha512-/ZK2jbUjm8JwdeCLFrUWUBmexPyI9PkaLVXWLWtN60sMDHTY8B5G72wcHglo1QMFBaw4G0qFkP5ayl9k6XfDaA==}
+  better-auth@1.2.5:
+    resolution: {integrity: sha512-Tz2aKImkvaT7P9qHQ67Vhw/Slo6zpvE0jG7GoDQM+dd5tWuC3lP0OGjjWkNCZdToVlWB193i5nSHeZT90sFqEw==}
 
   better-call@1.0.5:
     resolution: {integrity: sha512-rAT73GWIJ8LbSP8Y3BdJnY1hwAiQPRRmUJ4R3YVhcVGS927l3eTXG5o5TD6Bv6je6ygjdx6iVq3/BU49eGUCHg==}
@@ -2084,8 +2084,9 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
-  '@better-auth/utils@0.2.3':
+  '@better-auth/utils@0.2.4':
     dependencies:
+      typescript: 5.8.2
       uncrypto: 0.1.3
 
   '@better-fetch/fetch@1.1.17': {}
@@ -2674,9 +2675,9 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
 
-  better-auth@1.2.4(typescript@5.8.2):
+  better-auth@1.2.5(typescript@5.8.2):
     dependencies:
-      '@better-auth/utils': 0.2.3
+      '@better-auth/utils': 0.2.4
       '@better-fetch/fetch': 1.1.17
       '@noble/ciphers': 0.6.0
       '@noble/hashes': 1.7.1
