@@ -16,7 +16,7 @@
 	"dependencies": {
 		"@prisma/client": "6.5.0",
 		"@repo/db": "workspace:*",
-		"@types/node": "22.13.13",
+		"@types/node": "22.13.14",
 		"better-auth": "1.2.5"
 	},
 	"devDependencies": {
