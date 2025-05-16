@@ -13,7 +13,7 @@
 		"@repo/db": "workspace:*",
 		"@repo/logger": "workspace:*",
 		"@repo/ui": "workspace:*",
-		"better-auth": "1.2.7",
+		"better-auth": "1.2.8",
 		"next": "15.3.2",
 		"react": "19.1.0",
 		"react-dom": "19.1.0"
