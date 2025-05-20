@@ -21,7 +21,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/typescript-config": "workspace:*",
-		"@types/node": "22.15.19",
+		"@types/node": "22.15.20",
 		"@types/react": "19.1.4",
 		"@types/react-dom": "19.1.5",
 		"typescript": "5.8.3"
