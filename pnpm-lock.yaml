@@ -128,11 +128,11 @@ importers:
         specifier: 22.15.21
         version: 22.15.21
       '@types/react':
-        specifier: 19.1.5
-        version: 19.1.5
+        specifier: 19.1.6
+        version: 19.1.6
       '@types/react-dom':
         specifier: 19.1.5
-        version: 19.1.5(@types/react@19.1.5)
+        version: 19.1.5(@types/react@19.1.6)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -215,11 +215,11 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
       '@types/react':
-        specifier: 19.1.5
-        version: 19.1.5
+        specifier: 19.1.6
+        version: 19.1.6
       '@types/react-dom':
         specifier: 19.1.5
-        version: 19.1.5(@types/react@19.1.5)
+        version: 19.1.5(@types/react@19.1.6)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -884,8 +884,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@19.1.5':
-    resolution: {integrity: sha512-piErsCVVbpMMT2r7wbawdZsq4xMvIAhQuac2gedQHysu1TZYEigE6pnFfgZT+/jQnrRuF5r+SHzuehFjfRjr4g==}
+  '@types/react@19.1.6':
+    resolution: {integrity: sha512-JeG0rEWak0N6Itr6QUx+X60uQmN+5t3j9r/OVDtWzFXKaj6kD1BwJzOksD0FF6iWxZlbE1kB0q9vtnU2ekqa1Q==}
 
   '@types/send@0.17.4':
     resolution: {integrity: sha512-x2EM6TJOybec7c52BX0ZspPodMsQUd5L6PRwOunVyVUhXiBSKf3AezDL8Dgvgt5o0UfKNfuA0eMLr2wLT4AiBA==}
@@ -2517,11 +2517,11 @@ snapshots:
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@19.1.5(@types/react@19.1.5)':
+  '@types/react-dom@19.1.5(@types/react@19.1.6)':
     dependencies:
-      '@types/react': 19.1.5
+      '@types/react': 19.1.6
 
-  '@types/react@19.1.5':
+  '@types/react@19.1.6':
     dependencies:
       csstype: 3.1.3
 
