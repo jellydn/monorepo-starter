@@ -20,7 +20,7 @@
 		"better-auth": "1.2.10"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.0.4",
 		"tsup": "8.5.0",
 		"typescript": "5.8.3"
 	}
