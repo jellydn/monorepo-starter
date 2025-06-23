@@ -307,7 +307,6 @@ When migrating between environments:
    ```
 
 2. **Update your container registry**:
-
    - Push images to the new registry
    - Update the REGISTRY_URL in your deployment
 
@@ -318,7 +317,6 @@ When migrating between environments:
    ```
 
 4. **Apply environment-specific configurations**:
-
    - Add any cloud-specific resources
    - Update storage classes if needed
 
