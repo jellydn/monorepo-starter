@@ -31,14 +31,12 @@ This configuration uses Kubernetes Secrets for managing sensitive information:
 For enhanced security in production environments, consider using:
 
 1. **External Secret Management**:
-
    - HashiCorp Vault
    - AWS Secrets Manager
    - Azure Key Vault
    - Google Secret Manager
 
 2. **Sealed Secrets**:
-
    - Use Bitnami Sealed Secrets to encrypt secrets in Git
 
 3. **Environment Variables**:
@@ -57,7 +55,6 @@ For enhanced security in production environments, consider using:
 ### Deployment Steps
 
 1. **Set up DNS**:
-
    - Configure DNS records for `next-app-demo.itman.fyi` and `express-api-demo.itman.fyi`
    - If using Cloudflare, ensure proxy is enabled
 
