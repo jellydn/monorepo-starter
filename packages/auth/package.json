@@ -16,8 +16,8 @@
 	"dependencies": {
 		"@prisma/client": "6.10.1",
 		"@repo/db": "workspace:*",
-		"@types/node": "22.15.33",
-		"better-auth": "1.2.10"
+		"@types/node": "22.15.34",
+		"better-auth": "1.2.12"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
