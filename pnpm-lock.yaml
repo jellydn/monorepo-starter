@@ -33,8 +33,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/logger
       better-auth:
-        specifier: 1.3.24
-        version: 1.3.24(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: 1.3.25
+        version: 1.3.25(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       body-parser:
         specifier: 2.2.0
         version: 2.2.0
@@ -106,8 +106,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       better-auth:
-        specifier: 1.3.24
-        version: 1.3.24(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: 1.3.25
+        version: 1.3.25(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next:
         specifier: 15.5.4
         version: 15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -149,8 +149,8 @@ importers:
         specifier: 22.18.8
         version: 22.18.8
       better-auth:
-        specifier: 1.3.24
-        version: 1.3.24(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: 1.3.25
+        version: 1.3.25(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -251,8 +251,8 @@ packages:
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
 
-  '@better-auth/core@1.3.24':
-    resolution: {integrity: sha512-nU4aj5SA0COXAls0p3htIWmGPOG+76HULd9tG8CEUfwcK95rRrUIUN74FKvsAu3b18AVj3E7cL4bYrQS3KYKRw==}
+  '@better-auth/core@1.3.25':
+    resolution: {integrity: sha512-+Z09RkrpufX8+skD05pAoMSNo95Cl6nwfqrcEHfXJPaiSGJNXoo4/0GNtxZAgsW89xfRdsmbVAwwEd1AlCrHZA==}
 
   '@better-auth/utils@0.3.0':
     resolution: {integrity: sha512-W+Adw6ZA6mgvnSnhOki270rwJ42t4XzSK6YWGF//BbVXL6SwCLWfyzBc1lN2m/4RM28KubdBKQ4X5VMoLRNPQw==}
@@ -1058,8 +1058,8 @@ packages:
     resolution: {integrity: sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==}
     engines: {node: '>= 0.8'}
 
-  better-auth@1.3.24:
-    resolution: {integrity: sha512-LyxIbnB2FExhjqQ/J1G8S8EAbmTBDFOz6CjqHNNu15Gux+c4fF0Si1YNLprROEb4EGNuGUfslurW0Q6nZ+Dobg==}
+  better-auth@1.3.25:
+    resolution: {integrity: sha512-prTPitTvhIbYPeO/M1QrkveT5afbkyV1OAfnSxYe3WfgTdKgRiEO3tMIPzwmKA54zSWw6XBYKtSD9uIuAAfvuQ==}
     peerDependencies:
       '@lynx-js/react': '*'
       '@sveltejs/kit': '*'
@@ -2224,7 +2224,7 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
-  '@better-auth/core@1.3.24':
+  '@better-auth/core@1.3.25':
     dependencies:
       better-call: 1.0.19
       zod: 4.1.11
@@ -2930,9 +2930,9 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
 
-  better-auth@1.3.24(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  better-auth@1.3.25(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
-      '@better-auth/core': 1.3.24
+      '@better-auth/core': 1.3.25
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.18
       '@noble/ciphers': 2.0.1
