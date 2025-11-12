@@ -14,12 +14,12 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"tsx": "4.20.6",
-		"turbo": "2.6.0",
+		"turbo": "2.6.1",
 		"vitest": "3.2.4"
 	},
 	"engines": {
 		"node": ">=22.0.0",
 		"npm": ">=10.0.0"
 	},
-	"packageManager": "pnpm@10.20.0"
+	"packageManager": "pnpm@10.21.0"
 }
