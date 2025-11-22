@@ -1,11 +1,11 @@
 {
 	"dependencies": {
-		"@prisma/client": "6.19.0"
+		"@prisma/client": "7.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@types/node": "22.19.1",
-		"prisma": "6.19.0",
+		"prisma": "7.0.0",
 		"tsup": "8.5.1",
 		"typescript": "5.9.3"
 	},
