@@ -22,7 +22,7 @@
 		"@biomejs/biome": "1.9.4",
 		"@repo/typescript-config": "workspace:*",
 		"@types/node": "22.19.1",
-		"@types/react": "19.2.6",
+		"@types/react": "19.2.7",
 		"@types/react-dom": "19.2.3",
 		"typescript": "5.9.3"
 	}
