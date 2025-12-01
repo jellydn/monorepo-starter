@@ -23,7 +23,7 @@
 		"body-parser": "2.2.1",
 		"consola": "3.4.2",
 		"cors": "2.8.5",
-		"express": "5.1.0",
+		"express": "5.2.0",
 		"morgan": "1.10.1"
 	},
 	"devDependencies": {
