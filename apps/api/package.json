@@ -19,7 +19,7 @@
 		"@repo/auth": "workspace:*",
 		"@repo/db": "workspace:*",
 		"@repo/logger": "workspace:*",
-		"better-auth": "1.4.3",
+		"better-auth": "1.4.4",
 		"body-parser": "2.2.1",
 		"consola": "3.4.2",
 		"cors": "2.8.5",
@@ -38,7 +38,7 @@
 		"@vitest/coverage-v8": "3.2.4",
 		"@vitest/ui": "3.2.4",
 		"supertest": "7.1.4",
-		"tsx": "4.20.6",
+		"tsx": "4.21.0",
 		"typescript": "5.9.3"
 	}
 }
