@@ -19,11 +19,11 @@
 		"@repo/auth": "workspace:*",
 		"@repo/db": "workspace:*",
 		"@repo/logger": "workspace:*",
-		"better-auth": "1.4.4",
+		"better-auth": "1.4.5",
 		"body-parser": "2.2.1",
 		"consola": "3.4.2",
 		"cors": "2.8.5",
-		"express": "5.1.0",
+		"express": "5.2.1",
 		"morgan": "1.10.1"
 	},
 	"devDependencies": {
@@ -31,7 +31,7 @@
 		"@repo/typescript-config": "workspace:*",
 		"@types/body-parser": "1.19.6",
 		"@types/cors": "2.8.19",
-		"@types/express": "5.0.5",
+		"@types/express": "5.0.6",
 		"@types/morgan": "1.9.10",
 		"@types/node": "22.19.1",
 		"@types/supertest": "6.0.3",
