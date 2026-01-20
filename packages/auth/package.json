@@ -14,10 +14,10 @@
 		"clean": "rm -rf dist"
 	},
 	"dependencies": {
-		"@prisma/client": "6.19.1",
+		"@prisma/client": "6.19.2",
 		"@repo/db": "workspace:*",
-		"@types/node": "22.19.3",
-		"better-auth": "1.4.10"
+		"@types/node": "22.19.7",
+		"better-auth": "1.4.16"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
