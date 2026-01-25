@@ -22,7 +22,7 @@
 		"better-auth": "1.4.17",
 		"body-parser": "2.2.2",
 		"consola": "3.4.2",
-		"cors": "2.8.5",
+		"cors": "2.8.6",
 		"express": "5.2.1",
 		"morgan": "1.10.1"
 	},
