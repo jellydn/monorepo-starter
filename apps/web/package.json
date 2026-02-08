@@ -14,15 +14,15 @@
 		"@repo/logger": "workspace:*",
 		"@repo/ui": "workspace:*",
 		"better-auth": "1.4.18",
-		"next": "15.5.11",
+		"next": "15.5.12",
 		"react": "19.2.4",
 		"react-dom": "19.2.4"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/typescript-config": "workspace:*",
-		"@types/node": "22.19.7",
-		"@types/react": "19.2.10",
+		"@types/node": "22.19.10",
+		"@types/react": "19.2.13",
 		"@types/react-dom": "19.2.3",
 		"typescript": "5.9.3"
 	}
