@@ -15,11 +15,11 @@ importers:
         specifier: 4.21.0
         version: 4.21.0
       turbo:
-        specifier: 2.8.1
-        version: 2.8.1
+        specifier: 2.8.3
+        version: 2.8.3
       vitest:
         specifier: 3.2.4
-        version: 3.2.4(@types/node@22.19.7)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0)
+        version: 3.2.4(@types/node@22.19.10)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0)
 
   apps/api:
     dependencies:
@@ -34,7 +34,7 @@ importers:
         version: link:../../packages/logger
       better-auth:
         specifier: 1.4.18
-        version: 1.4.18(@prisma/client@6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3))(next@15.5.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vitest@3.2.4)
+        version: 1.4.18(@prisma/client@6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3))(next@15.5.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vitest@3.2.4)
       body-parser:
         specifier: 2.2.2
         version: 2.2.2
@@ -70,8 +70,8 @@ importers:
         specifier: 1.9.10
         version: 1.9.10
       '@types/node':
-        specifier: 22.19.7
-        version: 22.19.7
+        specifier: 22.19.10
+        version: 22.19.10
       '@types/supertest':
         specifier: 6.0.3
         version: 6.0.3
@@ -107,10 +107,10 @@ importers:
         version: link:../../packages/ui
       better-auth:
         specifier: 1.4.18
-        version: 1.4.18(@prisma/client@6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3))(next@15.5.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vitest@3.2.4)
+        version: 1.4.18(@prisma/client@6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3))(next@15.5.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vitest@3.2.4)
       next:
-        specifier: 15.5.11
-        version: 15.5.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: 15.5.12
+        version: 15.5.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react:
         specifier: 19.2.4
         version: 19.2.4
@@ -125,14 +125,14 @@ importers:
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
-        specifier: 22.19.7
-        version: 22.19.7
+        specifier: 22.19.10
+        version: 22.19.10
       '@types/react':
-        specifier: 19.2.10
-        version: 19.2.10
+        specifier: 19.2.13
+        version: 19.2.13
       '@types/react-dom':
         specifier: 19.2.3
-        version: 19.2.3(@types/react@19.2.10)
+        version: 19.2.3(@types/react@19.2.13)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -146,11 +146,11 @@ importers:
         specifier: workspace:*
         version: link:../db
       '@types/node':
-        specifier: 22.19.7
-        version: 22.19.7
+        specifier: 22.19.10
+        version: 22.19.10
       better-auth:
         specifier: 1.4.18
-        version: 1.4.18(@prisma/client@6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3))(next@15.5.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vitest@3.2.4)
+        version: 1.4.18(@prisma/client@6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3))(next@15.5.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vitest@3.2.4)
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -172,8 +172,8 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@types/node':
-        specifier: 22.19.7
-        version: 22.19.7
+        specifier: 22.19.10
+        version: 22.19.10
       prisma:
         specifier: 6.19.2
         version: 6.19.2(magicast@0.3.5)(typescript@5.9.3)
@@ -194,8 +194,8 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
-        specifier: 22.19.7
-        version: 22.19.7
+        specifier: 22.19.10
+        version: 22.19.10
       tsup:
         specifier: 8.5.1
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)
@@ -215,11 +215,11 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
       '@types/react':
-        specifier: 19.2.10
-        version: 19.2.10
+        specifier: 19.2.13
+        version: 19.2.13
       '@types/react-dom':
         specifier: 19.2.3
-        version: 19.2.3(@types/react@19.2.10)
+        version: 19.2.3(@types/react@19.2.13)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -662,57 +662,57 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@next/env@15.5.11':
-    resolution: {integrity: sha512-g9s5SS9gC7GJCEOR3OV3zqs7C5VddqxP9X+/6BpMbdXRkqsWfFf2CJPBZNvNEtAkKTNuRgRXAgNxSAXzfLdaTg==}
+  '@next/env@15.5.12':
+    resolution: {integrity: sha512-pUvdJN1on574wQHjaBfNGDt9Mz5utDSZFsIIQkMzPgNS8ZvT4H2mwOrOIClwsQOb6EGx5M76/CZr6G8i6pSpLg==}
 
-  '@next/swc-darwin-arm64@15.5.7':
-    resolution: {integrity: sha512-IZwtxCEpI91HVU/rAUOOobWSZv4P2DeTtNaCdHqLcTJU4wdNXgAySvKa/qJCgR5m6KI8UsKDXtO2B31jcaw1Yw==}
+  '@next/swc-darwin-arm64@15.5.12':
+    resolution: {integrity: sha512-RnRjBtH8S8eXCpUNkQ+543DUc7ys8y15VxmFU9HRqlo9BG3CcBUiwNtF8SNoi2xvGCVJq1vl2yYq+3oISBS0Zg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@15.5.7':
-    resolution: {integrity: sha512-UP6CaDBcqaCBuiq/gfCEJw7sPEoX1aIjZHnBWN9v9qYHQdMKvCKcAVs4OX1vIjeE+tC5EIuwDTVIoXpUes29lg==}
+  '@next/swc-darwin-x64@15.5.12':
+    resolution: {integrity: sha512-nqa9/7iQlboF1EFtNhWxQA0rQstmYRSBGxSM6g3GxvxHxcoeqVXfGNr9stJOme674m2V7r4E3+jEhhGvSQhJRA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@15.5.7':
-    resolution: {integrity: sha512-NCslw3GrNIw7OgmRBxHtdWFQYhexoUCq+0oS2ccjyYLtcn1SzGzeM54jpTFonIMUjNbHmpKpziXnpxhSWLcmBA==}
+  '@next/swc-linux-arm64-gnu@15.5.12':
+    resolution: {integrity: sha512-dCzAjqhDHwmoB2M4eYfVKqXs99QdQxNQVpftvP1eGVppamXh/OkDAwV737Zr0KPXEqRUMN4uCjh6mjO+XtF3Mw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@next/swc-linux-arm64-musl@15.5.7':
-    resolution: {integrity: sha512-nfymt+SE5cvtTrG9u1wdoxBr9bVB7mtKTcj0ltRn6gkP/2Nu1zM5ei8rwP9qKQP0Y//umK+TtkKgNtfboBxRrw==}
+  '@next/swc-linux-arm64-musl@15.5.12':
+    resolution: {integrity: sha512-+fpGWvQiITgf7PUtbWY1H7qUSnBZsPPLyyq03QuAKpVoTy/QUx1JptEDTQMVvQhvizCEuNLEeghrQUyXQOekuw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@next/swc-linux-x64-gnu@15.5.7':
-    resolution: {integrity: sha512-hvXcZvCaaEbCZcVzcY7E1uXN9xWZfFvkNHwbe/n4OkRhFWrs1J1QV+4U1BN06tXLdaS4DazEGXwgqnu/VMcmqw==}
+  '@next/swc-linux-x64-gnu@15.5.12':
+    resolution: {integrity: sha512-jSLvgdRRL/hrFAPqEjJf1fFguC719kmcptjNVDJl26BnJIpjL3KH5h6mzR4mAweociLQaqvt4UyzfbFjgAdDcw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@next/swc-linux-x64-musl@15.5.7':
-    resolution: {integrity: sha512-4IUO539b8FmF0odY6/SqANJdgwn1xs1GkPO5doZugwZ3ETF6JUdckk7RGmsfSf7ws8Qb2YB5It33mvNL/0acqA==}
+  '@next/swc-linux-x64-musl@15.5.12':
+    resolution: {integrity: sha512-/uaF0WfmYqQgLfPmN6BvULwxY0dufI2mlN2JbOKqqceZh1G4hjREyi7pg03zjfyS6eqNemHAZPSoP84x17vo6w==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@next/swc-win32-arm64-msvc@15.5.7':
-    resolution: {integrity: sha512-CpJVTkYI3ZajQkC5vajM7/ApKJUOlm6uP4BknM3XKvJ7VXAvCqSjSLmM0LKdYzn6nBJVSjdclx8nYJSa3xlTgQ==}
+  '@next/swc-win32-arm64-msvc@15.5.12':
+    resolution: {integrity: sha512-xhsL1OvQSfGmlL5RbOmU+FV120urrgFpYLq+6U8C6KIym32gZT6XF/SDE92jKzzlPWskkbjOKCpqk5m4i8PEfg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@15.5.7':
-    resolution: {integrity: sha512-gMzgBX164I6DN+9/PGA+9dQiwmTkE4TloBNx8Kv9UiGARsr9Nba7IpcBRA1iTV9vwlYnrE3Uy6I7Aj6qLjQuqw==}
+  '@next/swc-win32-x64-msvc@15.5.12':
+    resolution: {integrity: sha512-Z1Dh6lhFkxvBDH1FoW6OU/L6prYwPSlwjLiZkExIAh8fbP6iI/M7iGTQAJPYJ9YFlWobCZ1PHbchFhFYb2ADkw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -949,8 +949,8 @@ packages:
   '@types/morgan@1.9.10':
     resolution: {integrity: sha512-sS4A1zheMvsADRVfT0lYbJ4S9lmsey8Zo2F7cnbYjWHP67Q0AwMYuuzLlkIM2N8gAbb9cubhIVFwcIN2XyYCkA==}
 
-  '@types/node@22.19.7':
-    resolution: {integrity: sha512-MciR4AKGHWl7xwxkBa6xUGxQJ4VBOmPTF7sL+iGzuahOFaO0jHCsuEfS80pan1ef4gWId1oWOweIhrDEYLuaOw==}
+  '@types/node@22.19.10':
+    resolution: {integrity: sha512-tF5VOugLS/EuDlTBijk0MqABfP8UxgYazTLo3uIn3b4yJgg26QRbVYJYsDtHrjdDUIRfP70+VfhTTc+CE1yskw==}
 
   '@types/qs@6.14.0':
     resolution: {integrity: sha512-eOunJqu0K1923aExK6y8p6fsihYEn/BYuQ4g0CxAAgFc4b/ZLN4CrsRZ55srTdqoiLzU2B2evC+apEIxprEzkQ==}
@@ -963,8 +963,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.2.0
 
-  '@types/react@19.2.10':
-    resolution: {integrity: sha512-WPigyYuGhgZ/cTPRXB2EwUw+XvsRA3GqHlsP4qteqrnnjDrApbS7MxcGr/hke5iUoeB7E/gQtrs9I37zAJ0Vjw==}
+  '@types/react@19.2.13':
+    resolution: {integrity: sha512-KkiJeU6VbYbUOp5ITMIc7kBfqlYkKA5KhEHVrGMmUUMt7NeaZg65ojdPk+FtNrBAOXNVM5QM72jnADjM+XVRAQ==}
 
   '@types/send@1.2.1':
     resolution: {integrity: sha512-arsCikDvlU99zl1g69TcAB3mzZPpxgw0UQnaHeC1Nwb015xp8bknZv5rIfri9xTOcMuaVgvabfIRA7PSZVuZIQ==}
@@ -1454,6 +1454,7 @@ packages:
 
   glob@10.5.0:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   gopd@1.2.0:
@@ -1646,8 +1647,8 @@ packages:
     resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
     engines: {node: '>= 0.6'}
 
-  next@15.5.11:
-    resolution: {integrity: sha512-L2KPiKmqTDpRdeVDdPjhf43g2/VPe0NCNndq7OKDCgOLWtxe1kbr/zXGIZtYY7kZEAjRf7Bj/mwUFSr+tYC2Yg==}
+  next@15.5.12:
+    resolution: {integrity: sha512-Fi/wQ4Etlrn60rz78bebG1i1SR20QxvV8tVp6iJspjLUSHcZoeUXCt+vmWoEcza85ElZzExK/jJ/F6SvtGktjA==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
@@ -2049,38 +2050,38 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  turbo-darwin-64@2.8.1:
-    resolution: {integrity: sha512-FQ6Uqxty/H1Nvn1dpBe8KUlMRclTuiyNSc1PCeDL/ad7M9ykpWutB51YpMpf9ibTA32M6wLdIRf+D96W6hDAtQ==}
+  turbo-darwin-64@2.8.3:
+    resolution: {integrity: sha512-4kXRLfcygLOeNcP6JquqRLmGB/ATjjfehiojL2dJkL7GFm3SPSXbq7oNj8UbD8XriYQ5hPaSuz59iF1ijPHkTw==}
     cpu: [x64]
     os: [darwin]
 
-  turbo-darwin-arm64@2.8.1:
-    resolution: {integrity: sha512-4bCcEpGP2/aSXmeN2gl5SuAmS1q5ykjubnFvSoXjQoCKtDOV+vc4CTl/DduZzUUutCVUWXjl8OyfIQ+DGCaV4A==}
+  turbo-darwin-arm64@2.8.3:
+    resolution: {integrity: sha512-xF7uCeC0UY0Hrv/tqax0BMbFlVP1J/aRyeGQPZT4NjvIPj8gSPDgFhfkfz06DhUwDg5NgMo04uiSkAWE8WB/QQ==}
     cpu: [arm64]
     os: [darwin]
 
-  turbo-linux-64@2.8.1:
-    resolution: {integrity: sha512-m99JRlWlEgXPR7mkThAbKh6jbTmWSOXM/c6rt8yd4Uxh0+wjq7+DYcQbead6aoOqmCP9akswZ8EXIv1ogKBblg==}
+  turbo-linux-64@2.8.3:
+    resolution: {integrity: sha512-vxMDXwaOjweW/4etY7BxrXCSkvtwh0PbwVafyfT1Ww659SedUxd5rM3V2ZCmbwG8NiCfY7d6VtxyHx3Wh1GoZA==}
     cpu: [x64]
     os: [linux]
 
-  turbo-linux-arm64@2.8.1:
-    resolution: {integrity: sha512-AsPlza3AsavJdl2o7FE67qyv0aLfmT1XwFQGzvwpoAO6Bj7S4a03tpUchZKNuGjNAkKVProQRFnB7PgUAScFXA==}
+  turbo-linux-arm64@2.8.3:
+    resolution: {integrity: sha512-mQX7uYBZFkuPLLlKaNe9IjR1JIef4YvY8f21xFocvttXvdPebnq3PK1Zjzl9A1zun2BEuWNUwQIL8lgvN9Pm3Q==}
     cpu: [arm64]
     os: [linux]
 
-  turbo-windows-64@2.8.1:
-    resolution: {integrity: sha512-GdqNO6bYShRsr79B+2G/2ssjLEp9uBTvLBJSWRtRCiac/SEmv8T6RYv9hu+h5oGbFALtnKNp6BQBw78RJURsPw==}
+  turbo-windows-64@2.8.3:
+    resolution: {integrity: sha512-YLGEfppGxZj3VWcNOVa08h6ISsVKiG85aCAWosOKNUjb6yErWEuydv6/qImRJUI+tDLvDvW7BxopAkujRnWCrw==}
     cpu: [x64]
     os: [win32]
 
-  turbo-windows-arm64@2.8.1:
-    resolution: {integrity: sha512-n40E6IpkzrShRo3yMdRpgnn1/sAbGC6tZXwyNu8fe9RsufeD7KBiaoRSvw8xLyqV3pd2yoTL2rdCXq24MnTCWA==}
+  turbo-windows-arm64@2.8.3:
+    resolution: {integrity: sha512-afTUGKBRmOJU1smQSBnFGcbq0iabAPwh1uXu2BVk7BREg30/1gMnJh9DFEQTah+UD3n3ru8V55J83RQNFfqoyw==}
     cpu: [arm64]
     os: [win32]
 
-  turbo@2.8.1:
-    resolution: {integrity: sha512-pbSMlRflA0RAuk/0jnAt8pzOYh1+sKaT8nVtcs75OFGVWD0evleQRmKtHJJV42QOhaC3Hx9mUUSOom/irasbjA==}
+  turbo@2.8.3:
+    resolution: {integrity: sha512-8Osxz5Tu/Dw2kb31EAY+nhq/YZ3wzmQSmYa1nIArqxgCAldxv9TPlrAiaBUDVnKA4aiPn0OFBD1ACcpc5VFOAQ==}
     hasBin: true
 
   type-is@2.0.1:
@@ -2486,30 +2487,30 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@next/env@15.5.11': {}
+  '@next/env@15.5.12': {}
 
-  '@next/swc-darwin-arm64@15.5.7':
+  '@next/swc-darwin-arm64@15.5.12':
     optional: true
 
-  '@next/swc-darwin-x64@15.5.7':
+  '@next/swc-darwin-x64@15.5.12':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@15.5.7':
+  '@next/swc-linux-arm64-gnu@15.5.12':
     optional: true
 
-  '@next/swc-linux-arm64-musl@15.5.7':
+  '@next/swc-linux-arm64-musl@15.5.12':
     optional: true
 
-  '@next/swc-linux-x64-gnu@15.5.7':
+  '@next/swc-linux-x64-gnu@15.5.12':
     optional: true
 
-  '@next/swc-linux-x64-musl@15.5.7':
+  '@next/swc-linux-x64-musl@15.5.12':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@15.5.7':
+  '@next/swc-win32-arm64-msvc@15.5.12':
     optional: true
 
-  '@next/swc-win32-x64-msvc@15.5.7':
+  '@next/swc-win32-x64-msvc@15.5.12':
     optional: true
 
   '@noble/ciphers@2.1.1': {}
@@ -2646,7 +2647,7 @@ snapshots:
   '@types/body-parser@1.19.6':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
 
   '@types/chai@5.2.3':
     dependencies:
@@ -2655,13 +2656,13 @@ snapshots:
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
 
   '@types/cookiejar@2.1.5': {}
 
   '@types/cors@2.8.19':
     dependencies:
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
 
   '@types/deep-eql@4.0.2': {}
 
@@ -2669,7 +2670,7 @@ snapshots:
 
   '@types/express-serve-static-core@5.1.1':
     dependencies:
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
       '@types/qs': 6.14.0
       '@types/range-parser': 1.2.7
       '@types/send': 1.2.1
@@ -2686,9 +2687,9 @@ snapshots:
 
   '@types/morgan@1.9.10':
     dependencies:
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
 
-  '@types/node@22.19.7':
+  '@types/node@22.19.10':
     dependencies:
       undici-types: 6.21.0
 
@@ -2696,28 +2697,28 @@ snapshots:
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@19.2.3(@types/react@19.2.10)':
+  '@types/react-dom@19.2.3(@types/react@19.2.13)':
     dependencies:
-      '@types/react': 19.2.10
+      '@types/react': 19.2.13
 
-  '@types/react@19.2.10':
+  '@types/react@19.2.13':
     dependencies:
       csstype: 3.2.3
 
   '@types/send@1.2.1':
     dependencies:
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
 
   '@types/serve-static@2.2.0':
     dependencies:
       '@types/http-errors': 2.0.5
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
 
   '@types/superagent@8.1.9':
     dependencies:
       '@types/cookiejar': 2.1.5
       '@types/methods': 1.1.4
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
       form-data: 4.0.5
 
   '@types/supertest@6.0.3':
@@ -2740,7 +2741,7 @@ snapshots:
       std-env: 3.10.0
       test-exclude: 7.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/node@22.19.7)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0)
+      vitest: 3.2.4(@types/node@22.19.10)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -2752,13 +2753,13 @@ snapshots:
       chai: 5.3.3
       tinyrainbow: 2.0.0
 
-  '@vitest/mocker@3.2.4(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(tsx@4.21.0))':
+  '@vitest/mocker@3.2.4(vite@7.3.1(@types/node@22.19.10)(jiti@2.6.1)(tsx@4.21.0))':
     dependencies:
       '@vitest/spy': 3.2.4
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.3.1(@types/node@22.19.7)(jiti@2.6.1)(tsx@4.21.0)
+      vite: 7.3.1(@types/node@22.19.10)(jiti@2.6.1)(tsx@4.21.0)
 
   '@vitest/pretty-format@3.2.4':
     dependencies:
@@ -2789,7 +2790,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/node@22.19.7)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0)
+      vitest: 3.2.4(@types/node@22.19.10)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0)
 
   '@vitest/utils@3.2.4':
     dependencies:
@@ -2834,7 +2835,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
 
-  better-auth@1.4.18(@prisma/client@6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3))(next@15.5.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vitest@3.2.4):
+  better-auth@1.4.18(@prisma/client@6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3))(next@15.5.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vitest@3.2.4):
     dependencies:
       '@better-auth/core': 1.4.18(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.8(zod@4.3.6))(jose@6.1.3)(kysely@0.28.10)(nanostores@1.1.0)
       '@better-auth/telemetry': 1.4.18(@better-auth/core@1.4.18(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.8(zod@4.3.6))(jose@6.1.3)(kysely@0.28.10)(nanostores@1.1.0))
@@ -2850,11 +2851,11 @@ snapshots:
       zod: 4.3.6
     optionalDependencies:
       '@prisma/client': 6.19.2(prisma@6.19.2(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3)
-      next: 15.5.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      next: 15.5.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       prisma: 6.19.2(magicast@0.3.5)(typescript@5.9.3)
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
-      vitest: 3.2.4(@types/node@22.19.7)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0)
+      vitest: 3.2.4(@types/node@22.19.10)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0)
 
   better-call@1.1.8(zod@4.3.6):
     dependencies:
@@ -3391,9 +3392,9 @@ snapshots:
 
   negotiator@1.0.0: {}
 
-  next@15.5.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  next@15.5.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
-      '@next/env': 15.5.11
+      '@next/env': 15.5.12
       '@swc/helpers': 0.5.15
       caniuse-lite: 1.0.30001766
       postcss: 8.4.31
@@ -3401,14 +3402,14 @@ snapshots:
       react-dom: 19.2.4(react@19.2.4)
       styled-jsx: 5.1.6(react@19.2.4)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 15.5.7
-      '@next/swc-darwin-x64': 15.5.7
-      '@next/swc-linux-arm64-gnu': 15.5.7
-      '@next/swc-linux-arm64-musl': 15.5.7
-      '@next/swc-linux-x64-gnu': 15.5.7
-      '@next/swc-linux-x64-musl': 15.5.7
-      '@next/swc-win32-arm64-msvc': 15.5.7
-      '@next/swc-win32-x64-msvc': 15.5.7
+      '@next/swc-darwin-arm64': 15.5.12
+      '@next/swc-darwin-x64': 15.5.12
+      '@next/swc-linux-arm64-gnu': 15.5.12
+      '@next/swc-linux-arm64-musl': 15.5.12
+      '@next/swc-linux-x64-gnu': 15.5.12
+      '@next/swc-linux-x64-musl': 15.5.12
+      '@next/swc-win32-arm64-msvc': 15.5.12
+      '@next/swc-win32-x64-msvc': 15.5.12
       sharp: 0.34.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -3853,32 +3854,32 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  turbo-darwin-64@2.8.1:
+  turbo-darwin-64@2.8.3:
     optional: true
 
-  turbo-darwin-arm64@2.8.1:
+  turbo-darwin-arm64@2.8.3:
     optional: true
 
-  turbo-linux-64@2.8.1:
+  turbo-linux-64@2.8.3:
     optional: true
 
-  turbo-linux-arm64@2.8.1:
+  turbo-linux-arm64@2.8.3:
     optional: true
 
-  turbo-windows-64@2.8.1:
+  turbo-windows-64@2.8.3:
     optional: true
 
-  turbo-windows-arm64@2.8.1:
+  turbo-windows-arm64@2.8.3:
     optional: true
 
-  turbo@2.8.1:
+  turbo@2.8.3:
     optionalDependencies:
-      turbo-darwin-64: 2.8.1
-      turbo-darwin-arm64: 2.8.1
-      turbo-linux-64: 2.8.1
-      turbo-linux-arm64: 2.8.1
-      turbo-windows-64: 2.8.1
-      turbo-windows-arm64: 2.8.1
+      turbo-darwin-64: 2.8.3
+      turbo-darwin-arm64: 2.8.3
+      turbo-linux-64: 2.8.3
+      turbo-linux-arm64: 2.8.3
+      turbo-windows-64: 2.8.3
+      turbo-windows-arm64: 2.8.3
 
   type-is@2.0.1:
     dependencies:
@@ -3896,13 +3897,13 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-node@3.2.4(@types/node@22.19.7)(jiti@2.6.1)(tsx@4.21.0):
+  vite-node@3.2.4(@types/node@22.19.10)(jiti@2.6.1)(tsx@4.21.0):
     dependencies:
       cac: 6.7.14
       debug: 4.4.3
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 7.3.1(@types/node@22.19.7)(jiti@2.6.1)(tsx@4.21.0)
+      vite: 7.3.1(@types/node@22.19.10)(jiti@2.6.1)(tsx@4.21.0)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -3917,7 +3918,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(tsx@4.21.0):
+  vite@7.3.1(@types/node@22.19.10)(jiti@2.6.1)(tsx@4.21.0):
     dependencies:
       esbuild: 0.27.2
       fdir: 6.5.0(picomatch@4.0.3)
@@ -3926,16 +3927,16 @@ snapshots:
       rollup: 4.56.0
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
       fsevents: 2.3.3
       jiti: 2.6.1
       tsx: 4.21.0
 
-  vitest@3.2.4(@types/node@22.19.7)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0):
+  vitest@3.2.4(@types/node@22.19.10)(@vitest/ui@3.2.4)(jiti@2.6.1)(tsx@4.21.0):
     dependencies:
       '@types/chai': 5.2.3
       '@vitest/expect': 3.2.4
-      '@vitest/mocker': 3.2.4(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(tsx@4.21.0))
+      '@vitest/mocker': 3.2.4(vite@7.3.1(@types/node@22.19.10)(jiti@2.6.1)(tsx@4.21.0))
       '@vitest/pretty-format': 3.2.4
       '@vitest/runner': 3.2.4
       '@vitest/snapshot': 3.2.4
@@ -3953,11 +3954,11 @@ snapshots:
       tinyglobby: 0.2.15
       tinypool: 1.1.1
       tinyrainbow: 2.0.0
-      vite: 7.3.1(@types/node@22.19.7)(jiti@2.6.1)(tsx@4.21.0)
-      vite-node: 3.2.4(@types/node@22.19.7)(jiti@2.6.1)(tsx@4.21.0)
+      vite: 7.3.1(@types/node@22.19.10)(jiti@2.6.1)(tsx@4.21.0)
+      vite-node: 3.2.4(@types/node@22.19.10)(jiti@2.6.1)(tsx@4.21.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.19.7
+      '@types/node': 22.19.10
       '@vitest/ui': 3.2.4(vitest@3.2.4)
     transitivePeerDependencies:
       - jiti
