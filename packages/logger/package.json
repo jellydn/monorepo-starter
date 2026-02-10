@@ -20,7 +20,7 @@
 	},
 	"devDependencies": {
 		"@repo/typescript-config": "workspace:*",
-		"@types/node": "22.19.10",
+		"@types/node": "22.19.11",
 		"tsup": "8.5.1",
 		"typescript": "5.9.3"
 	}
