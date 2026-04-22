@@ -14,7 +14,7 @@
 		"clean": "rm -rf dist"
 	},
 	"dependencies": {
-		"@prisma/client": "6.19.2",
+		"@prisma/client": "7.8.0",
 		"@repo/db": "workspace:*",
 		"@types/node": "22.19.15",
 		"better-auth": "1.5.6"
