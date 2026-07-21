@@ -20,7 +20,7 @@
 		"@repo/db": "workspace:*",
 		"@repo/logger": "workspace:*",
 		"better-auth": "1.6.13",
-		"body-parser": "2.2.2",
+		"body-parser": "2.3.0",
 		"consola": "3.4.2",
 		"cors": "2.8.6",
 		"express": "5.2.1",
