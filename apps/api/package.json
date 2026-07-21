@@ -24,7 +24,7 @@
 		"consola": "3.4.2",
 		"cors": "2.8.6",
 		"express": "5.2.1",
-		"morgan": "1.10.1"
+		"morgan": "1.11.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
