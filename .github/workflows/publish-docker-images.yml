@@ -51,7 +51,7 @@ jobs:
       # Extract metadata for Docker images
       - name: Extract Docker metadata for Web
         id: meta-web
-        uses: docker/metadata-action@v5.10.0
+        uses: docker/metadata-action@v6.2.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_WEB }}
           tags: |
@@ -111,7 +111,7 @@ jobs:
       # Extract metadata for Docker images
       - name: Extract Docker metadata for API
         id: meta-api
-        uses: docker/metadata-action@v5.10.0
+        uses: docker/metadata-action@v6.2.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_API }}
           tags: |
