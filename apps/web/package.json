@@ -13,17 +13,17 @@
 		"@repo/db": "workspace:*",
 		"@repo/logger": "workspace:*",
 		"@repo/ui": "workspace:*",
-		"better-auth": "1.6.23",
-		"next": "15.5.24",
-		"react": "19.2.8",
-		"react-dom": "19.2.8"
+		"better-auth": "1.7.4",
+		"next": "15.5.25",
+		"react": "19.3.0",
+		"react-dom": "19.3.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.13",
 		"@repo/typescript-config": "workspace:*",
-		"@types/node": "22.20.1",
-		"@types/react": "19.2.17",
-		"@types/react-dom": "19.2.3",
+		"@types/node": "22.20.2",
+		"@types/react": "19.3.0",
+		"@types/react-dom": "19.3.0",
 		"typescript": "5.9.3"
 	}
 }
