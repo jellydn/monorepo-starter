@@ -16,11 +16,11 @@
 	"dependencies": {
 		"@prisma/client": "6.19.3",
 		"@repo/db": "workspace:*",
-		"@types/node": "22.20.2",
-		"better-auth": "1.7.4"
+		"@types/node": "22.20.5",
+		"better-auth": "1.7.10"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.13",
+		"@biomejs/biome": "2.5.15",
 		"tsup": "8.5.1",
 		"typescript": "5.9.3"
 	}
