@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.15",
-		"tsup": "8.5.1",
+		"tsup": "9.0.0",
 		"typescript": "5.9.3"
 	}
 }
