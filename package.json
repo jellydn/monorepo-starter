@@ -12,9 +12,9 @@
 		"test": "turbo run test"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.6.4",
+		"@biomejs/biome": "2.6.8",
 		"tsx": "4.23.15",
-		"turbo": "2.11.10",
+		"turbo": "2.11.13",
 		"vitest": "4.1.12"
 	},
 	"engines": {
